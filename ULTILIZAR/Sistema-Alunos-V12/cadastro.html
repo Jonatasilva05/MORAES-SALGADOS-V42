@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta nome="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./css/cadastro.css">
+
+    <title>Cadastro</title>
+</head>
+<body>
+    <main>
+    <form action="inserir_cadastro.php" method="post">    
+            <div id="box">
+                <fieldset>
+                    <legend><h1>Cadastro de Alunos</h1></legend>
+                    <br>
+                        <h2>Cadastre-se Aluno</h2>
+                    <br>
+                        <div class="inputBox">  <!--Caixa Nome-->
+                            <label for="nome" class="labelInput">Nome completo</label>
+                            <br>
+                            <input type="text" name="nome" id="nome" class="inputUser" required>
+                            
+                        </div>
+                        <br>
+
+                        <div class="inputBox">  <!--Caixa Telefone-->
+                            <label for="telefone" class="labelInput">Telefone</label>
+                            <br>
+                            <input type="tel" name="telefone" id="telefone" class="inputUser" required>
+                        </div>
+                        <br>
+
+                        <div class="inputBox">  <!--Caixa Telefone-->
+                            <label for="telefone" class="labelInput">Celular</label>
+                            <br>
+                            <input type="tel" name="celular" id="celular" class="inputUser" required>
+                        </div>
+                        <br>
+
+                        <h2>Informações de Login</h2>
+                        <br>
+                        <div class="inputBox"> 
+                            <label for="email" class="labelInput">E-mail</label>
+                            <br>
+                            <input type="email" name="email" id="email" class="inputUser" required>
+                            
+                        </div>
+                        <br>
+                    
+                        <div class="inputBox">  <!--Senha-->
+                            <label for="senha" class="labelInput">Faça sua senha</label>
+                            <br>
+                            <input type="password" name="Senha" id="senha" class="inputUser" required>
+                        </div>
+                        <br>
+
+                        <h2>Dados Pessoais</h2>
+                        <br>
+                        <div class="inputBox">  <!--Caixa Telefone-->
+                            <label for="telefone" class="labelInput">C.P.F</label>
+                            <br>
+                            <input type="number" name="cpf" id="cpf" class="inputUser" required>
+                        </div>
+                        <br>
+
+                        <div class="inputBox">  <!--Caixa Telefone-->
+                            <label for="telefone" class="labelInput">R.G</label>
+                            <br>
+                            <input type="number" name="rg" id="rg" class="inputUser" required>
+                        </div>
+                        <br>
+
+                        <div class="inputBox">
+                        <label for="data_nascimento">Data de Nascimento:</label>
+                        <input type="date" name="data_nascimento" id="data_nascimento" required>
+                        </div>
+                        <br><br>
+
+                        <div class="inputBox">
+                        <label for="cidade">Escolha sua cidade</label>
+                            <select name="cidades" id="cidades" required>
+                                <option value=""></option>
+                                <option value="taquaritinga">Taquaritinga</option>
+                                <option value="matão">Matão</option>
+                                <option value="jaboticabal">Jaboticabal</option>
+                                <option value="araraquara">Araraquara</option>
+                            </select>
+                        </div>
+                        <br><br>
+
+                        <div class="inputBox">
+                        <label>Escolha sua escola</label>
+                        <select name="escolas" id="escolas" required>
+                            <option value=""></option>
+                            <option value="taquaritinga">Taquaritinga</option>
+                            <option value="matão">Matão</option>
+                            <option value="jaboticabal">Jaboticabal</option>
+                            <option value="araraquara">Araraquara</option>
+                        </select>
+                        </div>
+                        <br>
+
+                        <div class="inputBox">
+                        <label for="endereco" class="labelInput">Endereço</label>
+                        <br>
+                        <input type="text" name="endereco" id="endereco" class="inputUser" required> 
+                        </div>
+                        <br>
+
+                        <div class="inputBox">
+                        <label for="pai">Nome do Pai completo</label>
+                        <br>
+                        <input type="text" name="pai" id="pai">
+                        <br>
+                        </div>
+                        <br>
+
+                        <div class="inputBox">
+                        <label for="mae">Nome da Mãe completo</label>
+                        <br>
+                        <input type="text" name="mae" id="mae">
+                        <br>
+                        </div>
+                        <br>
+
+                        <div class="inputBox">
+                        <label for="responsavel">Nome do(a) responsavel completo </label>
+                        <br>
+                        <input type="text" name="responsavel" id="responsavel" >
+                        <br>
+                        </div>
+                        <br>
+
+                        <div class="inputBox">
+                        <label for="upload">Faça o upload do Termo de responsabilidade</label>
+                        <input type="file" name="arquivo" id="arquivo" required>
+                        <br><br>
+                        
+                        <label for="upload">Faça o upload do comprovante de residência</label>
+                        <input type="file" name="arquivo" id="arquivo" required>
+                        <br><br>
+
+                        <label for="upload">Faça o upload da declaração de matrícula</label>
+                        <input type="file" name="arquivo" id="arquivo" required>
+                        <br><br>
+
+                        <h2>Caso seja menor de idade complete as informações abaixo</h2>
+                        <br>
+                        <label for="upload">Faça o upload da autorização de menor</label>
+                        <input type="file" name="arquivo" id="arquivo" required>
+                        </div>
+                        <br>
+
+                        <div class="botao">
+                            <button id="cancel" onclick="can()">Cancelar</button>
+                            <button id="submit" onclick="ent()">Enviar</button>
+                        </div>
+					</form>
+				</fieldset>
+            </div>
+        </form>
+    </main>
+
+    <script src="./java/ini.js"></script>
+</body>
+</html>

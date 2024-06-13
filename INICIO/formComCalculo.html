@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Form</title>
+<style>
+   /* Seus estilos CSS aqui */
+</style>
+</head>
+<body>
+<form id="orderForm" action="./PROCESS/user_processorderCox.php" method="post">
+   <input type="hidden" name="flavor" value="Coxinha">
+   <label for="product">Sabor:</label>
+   <select id="product" name="product">
+      <option value="Frango">Frango</option>
+      <option value="Frango C/ Catupiry">Frango C/ Catupiry</option>
+      <option value="Carne-Moída">Carne-Moída</option>
+      <option value="Calabresa">Calabresa</option>
+      <option value="Calabresa C/ Catupiry">Calabresa C/ Catupiry</option>
+      <option value="Pernil">Pernil</option>
+   </select>
+
+   <br><br>
+      
+   <label for="quantityType">Deseja Comprar Por:</label>
+   <br>
+   <input type="radio" id="unidade" name="quantity_type" value="unit" checked>
+   <label for="unidade">Unidades</label>
+   <input type="radio" id="combo" name="quantity_type" value="combo">
+   <label for="combo">Combos</label>
+
+   <hr>
+      
+   <div id="unitQuantityContainer">
+      <label for="unitQuantity">Deseja Quantas Unidades:</label>
+      <br>
+      <input type="number" class="unitQuantity" id="unitQuantity" name="unit_quantity" min="1" value="1">
+   </div>
+      
+   <div id="comboQuantityContainer" style="display: none;">
+      <label for="comboQuantity">Qual Combo Deseja:</label>
+      <select class="comboQuantity" id="comboQuantity" name="combo_quantity">
+            <option value="20">20 (R$35,00)</option>
+            <option value="30">30 (R$40,00)</option>
+            <option value="40">40 (R$45,00)</option>
+            <option value="50">50 (R$50,00)</option>
+            <option value="70">70 (R$60,00)</option>
+            <option value="80">80 (R$65,00)</option>
+            <option value="90">90 (R$70,00)</option>
+            <option value="100">100 (R$75,00)</option>
+      </select>
+   </div>
+
+   <hr>
+
+   <a href="">DESEJO COMPRAR PARA FESTAS</a>
+   <div class="price">Preço Total: R$<span id="finalPrice">5,00</span></div>
+   <div class="buttons">
+      <button type="submit" onclick="return confirm('Pedido Realizado com Sucesso!');" class="cart">Fazer Pedido</button>
+      <a href="./login.php" class="cart">Minha lista</a>
+      <a href="./login.php" class="buy">Comprar</a>
+   </div>
+</form>
+
+<br><br><br>
+
+<form id="orderForm" action="./PROCESS/user_processorderBol.php" method="post">
+   <input type="hidden" name="flavor" value="Bolinho">
+   <label for="product1">Sabor:</label>
+   <select id="product1" name="product1">
+       <option value="Presunto e Queijo">Presunto e Queijo</option>
+       <option value="Carne-Moída">Carne-Moída</option>
+       <option value="Ovo">Ovo</option>
+       <option value="Bolinho de Queijo(APENAS QUEIJO)">Bolinho de Queijo(APENAS QUEIJO)</option>
+   </select>
+
+   <br><br>
+
+   <label for="quantityType">Deseja Comprar Por:</label>
+   <br>
+   <input type="radio" id="unidade" name="quantity_type1" value="unit" checked>
+   <label for="unidade">Unidades</label>
+   <input type="radio" id="combo" name="quantity_type1" value="combo">
+   <label for="combo">Combos</label>
+
+   <hr>
+
+   <div id="unitQuantityContainer1">
+      <label for="unitQuantity">Quantas Unidades Deseja:</label>
+      <input type="number" class="unitQuantity2" id="unitQuantity" name="unit_quantity1" min="1" value="1">
+   </div>
+
+   <div id="comboQuantityContainer1" style="display: none;">
+      <label for="comboQuantity">Qual Combo Deseja:</label>
+      <select class="comboQuantity2" id="comboQuantity" name="combo_quantity1">
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="40">40</option>
+            <option value="50">50</option>
+            <option value="70">70</option>
+            <option value="80">80</option>
+            <option value="90">90</option>
+            <option value="100">100</option>
+      </select>
+   </div>
+
+   <hr>
+
+   <a href="">DESEJO COMPRAR PARA FESTAS</a>
+   <div class="price">R$<span id="finalPrice2">5,00</span> Reais</div>
+   <div class="buttons">
+      <button type="submit" onclick="return confirm('Pedido Realizado com Sucesso!');" class="cart">Fazer Pedido</button>
+      <a href="./login.php" class="cart">Minha lista</a>
+      <a href="./login.php" class="buy">Comprar</a>
+   </div>
+   </form>
+
+<script>
+   document.querySelector('.comboQuantity').addEventListener('change', function() {
+      var comboQuantity = parseInt(this.value);
+      var finalPrice = comboQuantity + 30;
+      document.getElementById('finalPrice').textContent = finalPrice.toFixed(2);
+      document.querySelector('.unitQuantity').value = "";
+   });
+
+   document.getElementById('unidade').addEventListener('change', function() {
+      document.getElementById('comboQuantityContainer').style.display = 'none';
+      document.getElementById('unitQuantityContainer').style.display = 'block';
+      var unitQuantity = parseInt(document.querySelector('.unitQuantity').value);
+      var finalPrice = unitQuantity * 5;
+      document.getElementById('finalPrice').textContent = finalPrice.toFixed(2);
+   });
+
+   document.getElementById('combo').addEventListener('change', function() {
+      document.getElementById('unitQuantityContainer').style.display = 'none';
+      document.getElementById('comboQuantityContainer').style.display = 'block';
+   });
+
+   document.querySelector('.unitQuantity').addEventListener('input', function() {
+      var unitQuantity = parseInt(this.value);
+      var finalPrice = unitQuantity * 5;
+      document.getElementById('finalPrice').textContent = finalPrice.toFixed(2);
+   });
+
+
+
+
+   document.querySelector('.comboQuantity2').addEventListener('change', function() {
+      var comboQuantity2 = parseInt(this.value);
+      var finalPrice2 = comboQuantity2 + 30;
+      document.getElementById('finalPrice2').textContent = finalPrice2.toFixed(2);
+      document.querySelector('.unitQuantity2').value = "";
+   });
+
+   document.getElementById('unidade').addEventListener('change', function() {
+      document.getElementById('comboQuantityContainer1').style.display = 'none';
+      document.getElementById('unitQuantityContainer1').style.display = 'block';
+      var unitQuantity2 = parseInt(document.querySelector('.unitQuantity2').value);
+      var finalPrice2 = unitQuantity2 * 5;
+      document.getElementById('finalPrice2').textContent = finalPrice2.toFixed(2);
+   });
+
+   document.getElementById('combo').addEventListener('change', function() {
+      document.getElementById('unitQuantityContainer1').style.display = 'none';
+      document.getElementById('comboQuantityContainer1').style.display = 'block';
+   });
+
+   document.querySelector('.unitQuantity2').addEventListener('input', function() {
+      var unitQuantity2 = parseInt(this.value);
+      var finalPrice2 = unitQuantity2 * 5;
+      document.getElementById('finalPrice2').textContent = finalPrice2.toFixed(2);
+   });
+</script>
+
+</body>
+</html>

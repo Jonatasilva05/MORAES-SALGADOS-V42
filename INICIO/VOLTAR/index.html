@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pedidos de Produtos</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  select, input[type="number"], button {
+    margin-bottom: 10px;
+  }
+  .combo-options {
+    display: none;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h2>Formulário 1 - Escolha seu produto ou combo e quantidade:</h2>
+  <div>
+    <input type="radio" id="unidades1" name="tipo1" value="unidades" checked>
+    <label for="unidades1">Unidades</label>
+    <input type="radio" id="combos1" name="tipo1" value="combos">
+    <label for="combos1">Combos</label>
+    <br>
+    <div id="unidades-options1">
+      <select id="produto1">
+        <option value="1">Produto 1 - R$10.00</option>
+        <option value="2">Produto 2 - R$15.00</option>
+        <option value="3">Produto 3 - R$20.00</option>
+      </select>
+      <br>
+      <input type="number" id="quantidade1" placeholder="Quantidade" min="1" value="1">
+    </div>
+    <div id="combos-options1" class="combo-options">
+      <select id="combo-produto1">
+        <option value="20">Combo 1 - R$20.00</option>
+        <option value="30">Combo 2 - R$30.00</option>
+        <option value="40">Combo 3 - R$40.00</option>
+        <option value="50">Combo 4 - R$50.00</option>
+        <option value="100">Combo 5 - R$100.00</option>
+      </select>
+    </div>
+    <br>
+    <button onclick="adicionarPedido(1)">Adicionar ao Carrinho</button>
+  </div>
+</div>
+
+<div class="container">
+  <h2>Formulário 2 - Escolha seu produto ou combo e quantidade:</h2>
+  <div>
+    <input type="radio" id="unidades2" name="tipo2" value="unidades" checked>
+    <label for="unidades2">Unidades</label>
+    <input type="radio" id="combos2" name="tipo2" value="combos">
+    <label for="combos2">Combos</label>
+    <br>
+    <div id="unidades-options2">
+      <select id="produto2">
+        <option value="4">Produto 4 - R$25.00</option>
+        <option value="5">Produto 5 - R$30.00</option>
+        <option value="6">Produto 6 - R$35.00</option>
+      </select>
+      <br>
+      <input type="number" id="quantidade2" placeholder="Quantidade" min="1" value="1">
+    </div>
+    <div id="combos-options2" class="combo-options">
+      <select id="combo-produto2">
+        <option value="30">Combo 6 - R$30.00</option>
+        <option value="40">Combo 7 - R$40.00</option>
+        <option value="50">Combo 8 - R$50.00</option>
+        <option value="60">Combo 9 - R$60.00</option>
+        <option value="120">Combo 10 - R$120.00</option>
+      </select>
+    </div>
+    <br>
+    <button onclick="adicionarPedido(2)">Adicionar ao Carrinho</button>
+  </div>
+</div>
+
+<div class="container">
+  <h2>Formulário 2 - Escolha seu produto ou combo e quantidade:</h2>
+  <div>
+    <input type="radio" id="unidades3" name="tipo3" value="unidades" checked>
+    <label for="unidades3">Unidades</label>
+    <input type="radio" id="combos2" name="tipo3" value="combos">
+    <label for="combos3">Combos</label>
+    <br>
+    <div id="unidades-options3">
+      <select id="produto3">
+        <option value="34">Produto 34 - R$25.00</option>
+        <option value="35">Produto 35 - R$30.00</option>
+        <option value="36">Produto 36 - R$35.00</option>
+      </select>
+      <br>
+      <input type="number" id="quantidade3" placeholder="Quantidade" min="1" value="1">
+    </div>
+    <div id="combos-options3" class="combo-options">
+      <select id="combo-produto3">
+        <option value="340">Combo 12 - R$30.00</option>
+        <option value="430">Combo 347 - R$40.00</option>
+        <option value="540">Combo 48 - R$50.00</option>
+        <option value="640">Combo 59 - R$60.00</option>
+        <option value="1250">Combo 610 - R$120.00</option>
+      </select>
+    </div>
+    <br>
+    <button onclick="adicionarPedido(3)">Adicionar ao Carrinho</button>
+  </div>
+</div>
+
+<div id="carrinho">
+  <h3>Carrinho de Compras:</h3>
+  <ul id="lista-pedidos"></ul>
+  <button onclick="finalizarPedido()">Finalizar Pedido</button>
+</div>
+
+<script>
+  const listaPedidos = [];
+
+  function adicionarPedido(formulario) {
+    const tipoSelecionado = document.querySelector(`input[name="tipo${formulario}"]:checked`).value;
+    let produto, quantidade;
+
+    if (tipoSelecionado === 'unidades') {
+      produto = document.getElementById(`produto${formulario}`).value;
+      quantidade = document.getElementById(`quantidade${formulario}`).value;
+    } else {
+      produto = document.getElementById(`combo-produto${formulario}`).value;
+      quantidade = 1; // Quantidade fixa para combos
+    }
+
+    listaPedidos.push({ produto: parseInt(produto), quantidade: parseInt(quantidade) });
+
+    exibirPedidos();
+  }
+
+  function exibirPedidos() {
+    const listaPedidosElement = document.getElementById('lista-pedidos');
+    listaPedidosElement.innerHTML = '';
+
+    listaPedidos.forEach((pedido, index) => {
+      const li = document.createElement('li');
+      if (pedido.produto >= 20) {
+        li.textContent = `Combo - Quantidade: ${pedido.quantidade} - Valor: R$${pedido.produto.toFixed(2)}`;
+      } else {
+        li.textContent = `Produto ${pedido.produto} - Quantidade: ${pedido.quantidade}`;
+      }
+      listaPedidosElement.appendChild(li);
+    });
+  }
+
+  function finalizarPedido() {
+    listaPedidos.length = 0;
+    exibirPedidos();
+    alert('Pedido finalizado com sucesso!');
+  }
+
+  // Função para mostrar ou ocultar as opções de combo com base na seleção do usuário
+  document.querySelectorAll('input[name^="tipo"]').forEach((radio) => {
+    radio.addEventListener('change', function() {
+      const tipoSelecionado = this.value;
+      const formulario = this.getAttribute('name').slice(-1);
+
+      if (tipoSelecionado === 'unidades') {
+        document.getElementById(`unidades-options${formulario}`).style.display = 'block';
+        document.getElementById(`combos-options${formulario}`).style.display = 'none';
+      } else {
+        document.getElementById(`unidades-options${formulario}`).style.display = 'none';
+        document.getElementById(`combos-options${formulario}`).style.display = 'block';
+      }
+    });
+  });
+</script>
+</body>
+</html>

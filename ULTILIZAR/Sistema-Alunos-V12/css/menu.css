@@ -1,0 +1,178 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/*M.E.N.U*/
+#header {
+    box-shadow: 0 5px 50px #23a0bf;
+    background: #00556a;
+}
+
+#section {
+    display: grid;
+    grid-template-columns: 40% 0px 50% 0px;
+}
+
+#nav-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 4rem;
+}
+
+#logo {
+    height: 50px;
+    width: 180px;
+    display: flex;
+    align-items: center;
+}
+
+#logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+#logo a img {
+    height: 100%;
+    width: 100%;
+}
+
+#nav-list {
+    display: flex;
+    align-items: center;
+}
+
+#nav-list ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.nav-menu {
+    margin: 0 5px;
+    padding: 3px 15px;
+    border-radius: 10px;
+}
+
+.nav-menu:hover{
+    background-color: #721010;
+}
+
+.nav-link {
+    text-decoration: none;
+    font-size: 1.15rem;
+    color: #fff;
+    font-weight: 400;
+}
+
+.login-button button {
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    background-color: #e10101c0;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 1.2rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.login-button button:hover{
+    background-color: #ff0000;
+    box-shadow: 0 0 1em 0.6vw #ffffff;
+}
+
+.mobile-menu-icon { 
+    display: none;
+}
+
+.mobile-menu {
+    display: none;
+}
+
+@media screen and (max-width: 730px) {
+    .nav-bar {
+        padding: 1.5rem 4rem;
+    }
+    .nav-item {
+        display: none;
+    }
+    .login-button {
+        display: none;
+    }
+    .mobile-menu-icon {
+        display: block;
+    }
+    .mobile-menu-icon button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+    .mobile-menu ul {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding-bottom: 1rem;
+    }
+    .mobile-menu .nav-item {
+        display: block;
+        padding-top: 1.2rem;
+    }
+    .mobile-menu .login-button {
+        display: block;
+        padding: 1rem 2rem;
+    }
+    .mobile-menu .login-button button {
+        width: 100%;
+    }
+    .open {
+        display: block;
+    }
+}
+
+/*MEIO-PAGINA*/
+
+#section {
+    display: flex;
+    justify-content: center;
+}
+
+.br{
+    height: 10px;
+    width: 0.1%;
+}
+
+#chat {
+    height: 100%;
+    width: 119%;
+    cursor: pointer;
+}
+
+#perfil {
+    padding: 30px 0px 0px 0px;
+    width: 70%;
+}
+
+#perfil h1 {
+    display: flex;
+    justify-content: center;
+}
+
+.imagem-perfil {
+    display: flex;
+    justify-content: center;
+}
+
+.imagem-perfil p {
+    display: flex;
+    justify-content: center;
+}
+
+#total {
+    height: 20px;
+    width: 200px;
+    border: 2px solid #ff0000;
+}

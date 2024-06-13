@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fazer Pedido</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+
+      <div class="products-preview" style="display: block;">
+
+         <!--COXINHA-->
+         <div class="preview active" data-target="p-1">
+            <i class="bi bi-x-circle"></i>
+            <img src="https://i.ibb.co/PMdhgbK/COXINHA.jpg" alt="COXINHA">
+            <h3>COXINHA</h3>
+            <div class="stars">
+               <span>SABORE DE:</span>
+            </div>
+                <hr>
+            <form id="orderForm" action="user_processorder.php" method="post">
+                    <input type="hidden" name="flavor" value="Coxinha">
+        
+                    <label for="product">Sabor:</label>
+                    <select id="product" name="product">
+                        <option value="Frango">Frango</option>
+                        <option value="Frango C/ Catupiry">Frango C/ Catupiry</option>
+                        <option value="Carne-Moída">Carne-Moída</option>
+                        <option value="Calabresa">Calabresa</option>
+                        <option value="Calabresa C/ Catupiry">Calabresa C/ Catupiry</option>
+                        <option value="Pernil">Pernil</option>
+                    </select>
+
+                    <br><br>
+        
+                    <label for="quantityType">Deseja Comprar Por:</label>
+                    <input type="radio" id="unidade" name="quantity_type" value="unidade" checked>
+                    <label for="unidade">Unidades</label>
+                    <input type="radio" id="combo" name="quantity_type" value="combo">
+                    <label for="combo">Combos</label>
+
+                    <br><br>
+        
+                    <div id="unitQuantityContainer">
+                        <label for="unitQuantity">Quantas Unidades Deseja:</label>
+                        <input type="number" id="unitQuantity" name="unit_quantity" min="1" value="1">
+                    </div>
+        
+                    <div id="comboQuantityContainer" style="display: none;">
+                        <label for="comboQuantity">Qual Combo Deseja:</label>
+                        <select id="comboQuantity" name="combo_quantity">
+                            <option value="20">20</option>
+                            <option value="30">30</option>
+                            <option value="40">40</option>
+                            <option value="50">50</option>
+                            <option value="70">70</option>
+                            <option value="80">80</option>
+                            <option value="90">90</option>
+                            <option value="100">100</option>
+                        </select>
+                    </div>
+
+                    <hr>
+
+                <a href="">DESEJO COMPRAR PARA FESTAS</a>
+                <div class="price">R$5,OO unid.</div>
+                <div class="buttons">
+                    <button type="submit" class="cart">Fazer Pedido</button>
+                    <a href="./login.php" class="cart">Minha lista</a>
+                    <a href="./login.php" class="buy">Comprar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+    <script>
+        document.querySelectorAll('input[name="quantity_type"]').forEach(function(element) {
+            element.addEventListener('change', function() {
+                var unitQuantityContainer = document.getElementById('unitQuantityContainer');
+                var comboQuantityContainer = document.getElementById('comboQuantityContainer');
+                if (this.value === 'combo') {
+                    unitQuantityContainer.style.display = 'none';
+                    comboQuantityContainer.style.display = 'block';
+                } else {
+                    unitQuantityContainer.style.display = 'block';
+                    comboQuantityContainer.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

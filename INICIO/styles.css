@@ -1,0 +1,144 @@
+
+  
+  .products-preview .preview{
+    display: none;
+    padding:2rem;
+    text-align: center;
+    background: #fff;
+    position: relative;
+    margin:2rem;
+    width: 40rem;
+  }
+  
+  .products-preview .preview.active{
+    display: inline-block;
+  }
+  
+  .products-preview .preview img{
+    height: 28em;
+    width: 35rem;
+  }
+  
+  .products-preview .preview .bi.bi-x-circle{
+    position: absolute;
+    top: 0.4rem; 
+    right: 0.2rem;
+    cursor: pointer;
+    color:#444;
+    font-size: 3rem;
+    
+  }
+  
+  .products-preview .preview .bi-x-circle:hover{
+    transform: rotate(90deg);
+  }
+  
+  @keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  }
+  
+  .products-preview .preview h3{
+    color:#444;
+    padding:.5rem 0;
+    font-size: 2.5rem;
+  }
+  
+  .products-preview .preview .stars{
+    padding:1rem 0;
+    font-size: 1.7rem;
+  }
+  
+  .products-preview .preview .stars i{
+    color:#27ae60;
+  }
+  
+  .products-preview .preview .stars span{
+    color:#999;
+  }
+  
+  /*QUANDO TIVER A AVALIAÇÃO EM PHP*/
+  /*.estrelas input[type=radio]{
+    display: none;
+  }.estrelas label i.fa:before{
+     content: '\f005';
+     color: #FC0;
+  }.estrelas  input[type=radio]:checked  ~ label i.fa:before{
+     color: #CCC;
+  } */
+  
+  .products-preview .preview p{
+    line-height: 1.5;
+    padding:1rem 0;
+    font-size: 1.6rem;
+    color:#777;
+  }
+  
+  .products-preview .preview .secao span{
+  cursor: pointer;
+  }
+  
+  .products-preview .preview .secao span i {
+  font-size: 2.5rem;
+  } 
+  
+  .products-preview .preview .price{
+    padding:1rem 0;
+    font-size: 2.5rem;
+    color:#27ae60;
+  }
+  
+  .products-preview .preview .buttons{
+    display: flex;
+    gap:1.5rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+  
+  .products-preview .preview .buttons a,
+  .products-preview .preview .buttons button {
+    flex:1 1 16rem;
+    padding:1rem;
+    font-size: 1.8rem;
+    color:#444;
+    border:.1rem solid #444;
+  }
+  
+  .products-preview .preview .buttons a.cart,
+  .products-preview .preview .buttons button.cart  {
+    background: #444;
+    color:#fff;
+  }
+  
+  .products-preview .preview .buttons a.cart:hover,
+  .products-preview .preview .buttons button.cart:hover  {
+    background: #111;
+  }
+  
+  .products-preview .preview .buttons a.buy {
+    background: #36da7a;
+    color: #111;
+    font-size: large;
+  }
+  
+  .products-preview .preview .buttons a.buy:hover{
+    background: #444;
+    color:#fff;
+  }
+  
+  .products-preview .preview .buttons .btnFechar{
+    flex:1 1 16rem;
+    padding:1rem;
+    font-size: 1.8rem;
+    color:#ffffff;
+    border:.1rem solid #444;
+    background: #ff0000;
+  }
+  
+  .products-preview .preview .buttons .btnFechar:hover{
+    background: #8f0505;
+  }

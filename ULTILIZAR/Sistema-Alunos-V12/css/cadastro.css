@@ -1,0 +1,56 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+form {
+    background: #cac9c9;
+}
+
+.inputBox input {
+    font-size: 1.3em; 
+    border-radius: 6px;
+    background: #b1a5a5;
+    box-shadow: inset 8px 8px 6px #877d7d,
+            inset -8px -8px 6px #dbcdcd;
+}
+
+fieldset{
+    padding: 0px 10px 0px 10px;
+    border: 1px solid #636060;
+}
+
+#box {
+    padding: 30px 30px 0px 30px;
+    background: #cabfbf;
+}
+
+#submit {
+    padding: 10px 10px 10px 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid #636060;
+    background: #00ff0d;
+}
+
+#submit:hover {
+    background: #00ad09;
+}
+
+#cancel {
+    padding: 10px 10px 10px 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid #636060;
+    background: #ff0000;
+    margin-right: 2%;
+}
+
+#cancel:hover {
+    background: #d10000;
+}
+
+.botao {
+    display: flex;
+    margin-bottom: 2%;
+}

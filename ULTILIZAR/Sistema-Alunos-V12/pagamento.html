@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="./css/menu.css">
+    <link rel="stylesheet" type="text/css" href="./css/pagamento.css">
+    <link rel="stylesheet" type="text/css" href="./css/marca/paga.css">
+
+    <title>Pagamentos</title>
+</head>
+<body>
+<header>
+    <div id="header">
+        <nav id="nav-bar">
+            <div id="logo">
+                <a href="./index.html">
+                    <img src="./img/buss.png" alt="logo do onibus">
+                </a>
+            </div>
+            <div id="nav-list">
+                <ul>
+                    <li class="nav-menu"><a href="./index.html" class="nav-link">Incio</a></li>
+                    <li class="nav-menu"><a href="./pagamento.html" class="nav-link">Pagamentos</a></li>
+                    <li class="nav-menu"><a href="./peso.html" class="nav-link">Dados Pessoais</a></li>
+                    <li class="nav-menu"><a href="./rema.html" class="nav-link">Rematricula</a></li>
+                </ul>
+            </div>
+            <div class="login-button">
+                <button id="fechar">Sair</button>
+            </div>
+
+            <div class="mobile-menu-icon">
+                <button onclick="menuShow()">
+                    <img class="icon" src="./img/responsive/menu_white_36dp.svg" alt="">
+                </button>
+            </div>   
+        </nav>
+
+        <div class="mobile-menu">
+            <ul>
+                <li class="nav-menu"><a href="./index.html" class="nav-link">Incio</a></li>
+                <li class="nav-menu"><a href="./pagamento.html" class="nav-link">Pagamentos</a></li>
+                <li class="nav-menu"><a href="./peso.html" class="nav-link">Dados Pessoais</a></li>
+                <li class="nav-menu"><a href="#" class="nav-link">Rematricula</a></li>
+            </ul>
+            
+            <div class="login-button">
+                <button id="fechar">Sair</button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<br>
+
+<main>
+    <aside>
+        <div class="container">
+            <div class="buttonsForm">
+                <div class="btnColor"></div>
+                <button id="btnpende">Pendentes</button>
+                <button id="btnpagos">Pagos</button>
+            </div>
+            <form id="penden">
+                <div id="meses">
+                    <br>
+                    <p>Baixe os boletos de acordo com o mês e faça o pagamento</p>
+                    <br>
+                    <!--
+                    <label for="">Janeiro</label>
+                    <br>
+                    <a href="url" download="https://www.dicionariofinanceiro.com/files/Recibo_de_venda_3.pdf">baixe</a> -->
+
+                    <table class="tabela">
+                        <tr>
+                            <td><h3>MESES</h3></td>
+                            <td><h3>VALOR</h3></td>
+                            <td><h3>CONTA_PENDENTE</h3></td>
+                        </tr>
+                        <tr>
+                            <td><label><b>Janeiro</b></label></td>
+                            <td><label>R$:</label></td>
+                            <td><a href="url" download="https://www.dicionariofinanceiro.com/files/Recibo_de_venda_3.pdf">Baixar conta</a></td>
+                        </tr>
+                        <tr>
+                            <td><label><b>Fevereiro</b></label></td>
+                            <td><label>R$:</label></td>
+                            <td><a href="url" download="https://www.dicionariofinanceiro.com/files/Recibo_de_venda_3.pdf">Baixar conta</a></td>
+                        </tr>
+                        <tr>
+                            <td><label><b>Março</b></label></td>
+                            <td><label>R$:</label></td>
+                            <td><a href="url" download="https://www.dicionariofinanceiro.com/files/Recibo_de_venda_3.pdf">Baixar conta</a></td>
+                        </tr>
+                        <tr>
+                            <td><label><b>Abril</b></label></td>
+                            <td><label>R$:</label></td>
+                            <td><a href="url" download="https://www.dicionariofinanceiro.com/files/Recibo_de_venda_3.pdf">Baixar conta</a></td>
+                        </tr>
+                        <tr>
+                            <td><label><b>Maio</b></label></td>
+                            <td><label>R$:</label></td>
+                            <td><a href="url" download="https://www.dicionariofinanceiro.com/files/Recibo_de_venda_3.pdf">Baixar conta</a></td>
+                        </tr>
+                        <tr>
+                            <td><label><b>Junho</b></label></td>
+                            <td><label>R$:</label></td>
+                            <td><a href="url" download="https://www.dicionariofinanceiro.com/files/Recibo_de_venda_3.pdf">Baixar conta</a></td>
+                        </tr>
+                        <tr>
+                            <td><label><b>Julho</b></label></td>
+                            <td><label>R$:</label></td>
+                            <td><a href="url" download="https://www.dicionariofinanceiro.com/files/Recibo_de_venda_3.pdf">Baixar conta</a></td>
+                        </tr>
+                        <tr>
+                            <td><label><b>Agosto</b></label></td>
+                            <td><label>R$:</label></td>
+                            <td><a href="url" download="https://www.dicionariofinanceiro.com/files/Recibo_de_venda_3.pdf">Baixar conta</a></td>
+                        </tr>
+                        <tr>
+                            <td><label><b>Setembro</b></label></td>
+                            <td><label>R$:</label></td>
+                            <td><a href="url" download="https://www.dicionariofinanceiro.com/files/Recibo_de_venda_3.pdf">Baixar conta</a></td>
+                        </tr>
+                        <tr>
+                            <td><label><b>Outubro</b></label></td>
+                            <td><label>R$:</label></td>
+                            <td><a href="url" download="https://www.dicionariofinanceiro.com/files/Recibo_de_venda_3.pdf">Baixar conta</a></td>
+                        </tr>
+                        <tr>
+                            <td><label><b>Novembro</b></label></td>
+                            <td><label>R$:</label></td>
+                            <td><a href="url" download="https://www.dicionariofinanceiro.com/files/Recibo_de_venda_3.pdf">Baixar conta</a></td>
+                        </tr>
+                        <tr>
+                            <td><label><b>Dezembro</b></label></td>
+                            <td><label>R$:</label></td>
+                            <td><a href="url" download="https://www.dicionariofinanceiro.com/files/Recibo_de_venda_3.pdf">Baixar conta</a></td>
+                        </tr>
+                      </table>
+                      
+                </div>
+            </form>
+        
+            <form id="pagos">
+                <div id="comprovante">
+                    <br>
+                    <p>Faça o upload dos arquivos já pagos</p>
+                    <br>
+                    <table class="tabela">
+                        <tr>
+                            <td><h3>MESES</h3></td>
+                            <td><h3>VALOR</h3></td>
+                            <td><h3>CONTA_PENDENTE</h3></td>
+                        </tr>
+                        <tr>
+                            <td><label><b>Janeiro</b></label></td>
+                            <td><label>PAGO</label></td>
+                            <td><input type="file"></td>
+                        </tr>
+                        <tr>
+                            <td><label><b>Fevereiro</b></label></td>
+                            <td><label>PAGO</label></td>
+                            <td><input type="file"></td>
+                        </tr>
+                        <tr>
+                            <td><label><b>Março</b></label></td>
+                            <td><label>PAGO</label></td>
+                            <td><input type="file"></td>
+                        </tr>
+                        <tr>
+                            <td><label><b>Abril</b></label></td>
+                            <td><label>PAGO</label></td>
+                            <td><input type="file"></td>
+                        </tr>
+                        <tr>
+                            <td><label><b>Maio</b></label></td>
+                            <td><label>PAGO</label></td>
+                            <td><input type="file"></td>
+                        </tr>
+                        <tr>
+                            <td><label><b>Junho</b></label></td>
+                            <td><label>PAGO</label></td>
+                            <td><input type="file"></td>
+                        </tr>
+                        <tr>
+                            <td><label><b>Julho</b></label></td>
+                            <td><label>PAGO</label></td>
+                            <td><input type="file"></td>
+                        </tr>
+                        <tr>
+                            <td><label><b>Agosto</b></label></td>
+                            <td><label>PAGO</label></td>
+                            <td><input type="file"></td>
+                        </tr>
+                        <tr>
+                            <td><label><b>Setembro</b></label></td>
+                            <td><label>PAGO</label></td>
+                            <td><input type="file"></td>
+                        </tr>
+                        <tr>
+                            <td><label><b>Outubro</b></label></td>
+                            <td><label>PAGO</label></td>
+                            <td><input type="file"></td>
+                        </tr>
+                        <tr>
+                            <td><label><b>Novembro</b></label></td>
+                            <td><label>PAGO</label></td>
+                            <td><input type="file"></td>
+                        </tr>
+                        <tr>
+                            <td><label><b>Dezembro</b></label></td>
+                            <td><label>PAGO</label></td>
+                            <td><input type="file"></td>
+                        </tr>
+                    </table>
+                </div>
+            </form>
+        </div>
+    </aside>
+</main>
+<br>
+    <script src="./java/pagamento.js"></script>
+
+</body>
+</html>

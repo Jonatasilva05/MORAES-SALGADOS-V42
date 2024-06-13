@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Satisfação do Usuário</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!--OPÇÃO DE RADIO BUTTON ESCOLHENDO UMA ESCONDE AS OUTRAS-->
+<!--<form>
+    <input type="radio" name="escolha" value="opcao1" id="opcao1" onchange="mostrarOpcoes()"> Opção 1<br>
+    <input type="radio" name="escolha" value="opcao2" id="opcao2" onchange="mostrarOpcoes()"> Opção 2<br>
+    
+    <div id="opcoesExtras" style="display:none;">
+        <input type="checkbox" name="opcaoExtra1" value="extra1"> Opção Extra 1<br>
+        <input type="checkbox" name="opcaoExtra2" value="extra2"> Opção Extra 2<br>
+    </div>
+</form> -->
+
+
+
+
+    
+    <!--BARRA DE AVALIAÇÃO COM PORCENTAGEM-->
+    <!-- <style>
+        .rating-container {
+          width: 200px;
+          height: 30px;
+          background-color: #f0f0f0;
+          border-radius: 5px;
+          overflow: hidden;
+          cursor: pointer;
+        }
+      
+        .rating-bar {
+          height: 100%;
+          background-color: #f7d551;
+          transition: width 0.3s ease-in-out;
+        }
+      
+        .rating-label {
+          font-size: 18px;
+          margin-top: 5px;
+        }
+      </style>
+      </head>
+      <body>
+      
+      <div class="rating-container">
+        <div class="rating-bar" style="width: 0;"></div>
+      </div>
+      <div class="rating-label">0%</div>
+      
+      <script>
+        const ratingContainer = document.querySelector('.rating-container');
+        const ratingBar = document.querySelector('.rating-bar');
+        const ratingLabel = document.querySelector('.rating-label');
+      
+        // Função para atualizar a barra de avaliação
+        function updateRating(percent) {
+          ratingBar.style.width = percent + '%';
+          ratingLabel.textContent = percent + '%';
+        }
+      
+        // Atualiza a barra de avaliação quando o usuário clica e arrasta
+        ratingContainer.addEventListener('mousedown', function(event) {
+          const rect = ratingContainer.getBoundingClientRect();
+          const offsetX = event.clientX - rect.left;
+          const newPercent = Math.min(100, Math.max(0, offsetX / rect.width * 100));
+          updateRating(newPercent);
+        });
+      
+        // Atualiza a barra de avaliação quando o usuário move o mouse
+        ratingContainer.addEventListener('mousemove', function(event) {
+          if (event.buttons === 1) {
+            const rect = ratingContainer.getBoundingClientRect();
+            const offsetX = event.clientX - rect.left;
+            const newPercent = Math.min(100, Math.max(0, offsetX / rect.width * 100));
+            updateRating(newPercent);
+          }
+        });
+      
+        // Impede o comportamento padrão do clique com botão direito do mouse
+        ratingContainer.addEventListener('contextmenu', function(event) {
+          event.preventDefault();
+        });
+      </script> -->
+      
+
+
+
+
+
+
+
+    <!--Formulario de satisfação com barra de procentagem-->
+    <!-- <div class="container">
+        <h1>Formulário de Satisfação</h1>
+        <p>Obrigado por utilizar nosso serviço! Sua opinião é importante para nós.</p>
+        <form action="#">
+            <label for="satisfacao">Qual o seu grau de satisfação?</label>
+            <div class="barra-satisfacao">
+                <input type="range" name="satisfacao" id="satisfacao" min="0" max="100" step="1" value="50">
+                <span id="valor-satisfacao">50%</span>
+            </div>
+            <label for="comentario">Deixe seu comentário (opcional):</label>
+            <textarea name="comentario" id="comentario" rows="5"></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </div> -->
+
+    <!--Formulário de Satisfação-->
+    <!-- <div class="container">
+        <h1>Formulário de Satisfação do Usuário</h1>
+        <p>Obrigado por utilizar nosso serviço! Sua opinião é muito importante para que possamos melhorar continuamente.</p>
+        <form action="#">
+            <label for="avaliacao">Qual a sua avaliação geral do serviço?</label>
+            <select name="avaliacao" id="avaliacao">
+                <option value="excelente">Excelente</option>
+                <option value="bom">Bom</option>
+                <option value="regular">Regular</option>
+                <option value="ruim">Ruim</option>
+                <option value="pessimo">Péssimo</option>
+            </select>
+            <label for="comentario-positivo">O que você mais gostou do serviço?</label>
+            <textarea name="comentario-positivo" id="comentario-positivo" rows="5"></textarea>
+            <label for="comentario-negativo">O que você menos gostou do serviço?</label>
+            <textarea name="comentario-negativo" id="comentario-negativo" rows="5"></textarea>
+            <label for="recomendacao">Em uma escala de 0 a 10, quanto você recomendaria este serviço para um amigo ou colega?</label>
+            <input type="number" name="recomendacao" id="recomendacao" min="0" max="10">
+            <label for="sugestao">Você tem alguma sugestão para melhorar o serviço?</label>
+            <textarea name="sugestao" id="sugestao" rows="5"></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </div> -->
+    
+    <!--Formulário de reclamação-->
+    <!-- <div class="container">
+        <h1>Formulário de Reclamação</h1>
+        <p>Lamentamos saber que você teve uma experiência negativa. Preencha o formulário para nos ajudar a resolver o problema.</p>
+        <form action="#">
+            <label for="motivo">Qual o motivo da sua reclamação?</label>
+            <textarea name="motivo" id="motivo" rows="5"></textarea>
+            <label for="data">Quando o problema aconteceu?</label>
+            <input type="datetime-local" name="data" id="data">
+            <label for="servico">Qual serviço ou produto você estava utilizando?</label>
+            <input type="text" name="servico" id="servico">
+            <label for="problema">Como o problema se manifestou?</label>
+            <textarea name="problema" id="problema" rows="5"></textarea>
+            <label for="tentativas">Quais ações você já tomou para tentar solucionar o problema?</label>
+            <textarea name="tentativas" id="tentativas" rows="5"></textarea>
+            <label for="resultado">Qual o resultado que você espera?</label>
+            <textarea name="resultado" id="resultado" rows="5"></textarea>
+            <label for="anexo">Anexar arquivo (opcional):</label>
+            <input type="file" name="anexo" id="anexo">
+            <h2>Seus Dados</h2>
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" id="nome">
+            <label for="email">E-mail:</label>
+            <input type="email" name="email" id="email">
+            <label for="telefone">Telefone:</label>
+            <input type="tel" name="telefone" id="telefone">
+            <button type="submit">Enviar Reclamação</button>
+        </form>
+    </div> -->
+
+    <script src="script.js"></script>
+</body>
+</html>

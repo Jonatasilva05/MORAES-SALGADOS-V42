@@ -1,0 +1,4 @@
+ul:first-of-type > li:nth-child(3) {
+    font-weight: bold;
+    border-bottom: 3px solid #fff;
+}

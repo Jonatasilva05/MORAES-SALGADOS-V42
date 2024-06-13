@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@100;300;400;500;700;900&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
+
+aside {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  background-color: whitesmoke;
+  padding: 6px;
+  width: 97%;
+  height: 130vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 23px 23px 44px #717171,
+  -23px -23px 44px #e1e1e1; /*ou 717171*/
+}
+
+form {
+  position: absolute;
+  margin-top: 80px;
+  transition: .5s;
+  width: 300px;
+  height: 400px;
+  animation: descer 2s ease-in-out ;
+}
+
+@keyframes descer {
+  0% {
+    transform: translateY(-320px);
+  }
+  50%{
+    transform: translateY(120px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.buttonsForm {
+  margin-top: 40px;
+  position: relative;
+  border-radius: 15px;
+  box-shadow: 0 0 7px 0 blueviolet;
+}
+
+.buttonsForm .selected{
+  color: #e1e1e1;
+  transform: scale(1.2);
+  transition: 350ms ease-in-out ;
+}
+
+.buttonsForm button {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  position: relative;
+  padding: 10px 29px;
+}
+
+.btnColor {
+  position: absolute;
+  width: 110px;
+  height: 100%;
+  background: linear-gradient(to right, #5956e9, #a963f8);
+  border-radius: 15px;
+  transition: .5s;
+}
+
+#penden {
+  left: 25px;
+  transition: 0.8s ease-in-out ;
+}
+
+#pagos {
+  left: 5000px;
+  transition: 0.8s ease-in-out ;
+}
+
+#testar {
+  left: 5000px;
+  transition: 0.8s ease-in-out ;
+}
+
+.tabela {
+    border: 2px solid #000;
+}
+
+td {
+    padding: 15px 50px 15px 8px;
+    border: 1px solid #000;
+}
+
+p {
+    font-size: 1.5rem;
+}
