@@ -4,14 +4,13 @@ require_once('./config.php');
 
 $user_id = $_SESSION['user_id'];
 
-// Consulta para obter os pedidos do usuário
 $sql = "SELECT id, product, quantity_type, quantity, flavor, order_date FROM orders WHERE user_id = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
 $result = $stmt->get_result();
 
-$total_geral = 0; // Inicializa o total geral como 0
+$total_geral = 0;
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -121,13 +120,11 @@ $total_geral = 0; // Inicializa o total geral como 0
             <?php
                 if (isset($_SESSION['endereco_entrega']) && is_array($_SESSION['endereco_entrega'])) {
                     $endereco_entrega = $_SESSION['endereco_entrega'];
-                    // Exibir as informações do endereço de entrega
                     echo "<h2>Endereço de Entrega</h2>";
                     echo "<p><strong>Endereço:</strong> " . $endereco_entrega['endereco'] . "</p>";
                     echo "<p><strong>Número:</strong> " . $endereco_entrega['numero'] . "</p>";
                     echo "<p><strong>Bairro:</strong> " . $endereco_entrega['bairro'] . "</p>";
                     echo "<p><strong>Cidade:</strong> " . $endereco_entrega['cidade'] . "</p>";
-                    // Adicione mais campos conforme necessário (CEP, telefone, etc.)
                 } else {
                     echo "<p>Nenhum endereço de entrega selecionado.</p>";
                 }

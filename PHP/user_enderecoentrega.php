@@ -15,7 +15,6 @@ include_once("./config.php");
 <h1>Escolher Endereço de Entrega</h1>
 
 <?php
-// Consulta para obter os endereços cadastrados pelo usuário
 $sql = "SELECT * FROM enderecos_entrega";
 $resultado = $conn->query($sql);
 

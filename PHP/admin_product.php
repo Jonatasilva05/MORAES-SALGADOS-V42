@@ -62,6 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['sabor'])) {
    <link rel="icon" href="./IMGs/LOGOS/ICONE_MS_ABA_32.png" type="image/png">
 
     <title>Administração de Produtos</title>
+    
 </head>
 <body>
     

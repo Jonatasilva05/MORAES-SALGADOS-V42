@@ -2,13 +2,11 @@
 session_start();
 require_once('./config.php');
 
-// Verificar se o usuário está logado
 if (!isset($_SESSION['user_id'])) {
     header("Location: ../index.php");
     exit();
 }
 
-// Buscar informações do usuário logado
 $user_id = $_SESSION['user_id'];
 $is_admin = $_SESSION['is_admin'];
 ?>
@@ -29,7 +27,6 @@ $is_admin = $_SESSION['is_admin'];
     <div class="container">
         <h1>Produtos Disponíveis</h1>
 
-        <!-- Filtro de categoria -->
         <form action="user_product.php" method="get">
             <label for="category">Filtrar por Categoria:</label>
             <select name="category" id="category">
@@ -41,7 +38,6 @@ $is_admin = $_SESSION['is_admin'];
             <button type="submit">Filtrar</button>
         </form>
 
-        <!-- Lista de produtos filtrados por categoria -->
         <table>
             <thead>
                 <tr>
@@ -55,7 +51,6 @@ $is_admin = $_SESSION['is_admin'];
                 <?php
                 require_once('config.php');
 
-                // Consulta SQL para obter produtos filtrados por categoria
                 $where_clause = '';
                 if (isset($_GET['category']) && $_GET['category'] != '') {
                     $category = $_GET['category'];

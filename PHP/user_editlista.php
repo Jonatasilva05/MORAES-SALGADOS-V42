@@ -17,9 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $product = $_POST['product'];
     $quantity_type = $_POST['quantity_type'];
     $quantity = ($quantity_type == 'unit') ? $_POST['unit_quantity'] : $_POST['combo_quantity'];
-    $flavor = $_POST['flavor']; // Campo de sabor será enviado corretamente
+    $flavor = $_POST['flavor'];
 
-    // Atualiza o pedido no banco de dados
     $sql = "UPDATE orders SET product = ?, quantity_type = ?, quantity = ?, flavor = ? WHERE id = ? AND user_id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("sssiii", $product, $quantity_type, $quantity, $flavor, $order_id, $user_id);
@@ -33,7 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $stmt->close();
 } else {
-    // Consulta para obter os detalhes do pedido
     $sql = "SELECT product, quantity_type, quantity, flavor FROM orders WHERE id = ? AND user_id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ii", $order_id, $user_id);

@@ -3,13 +3,11 @@ session_start();
 require_once('./config.php');
 
 
-// Verificar se o usuário está logado
 if (!isset($_SESSION['user_id'])) {
     header("Location: ../index.php");
     exit();
 }
 
-// Buscar informações do usuário logado
 $user_id = $_SESSION['user_id'];
 $is_admin = $_SESSION['is_admin'];
 ?>

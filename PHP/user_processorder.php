@@ -15,13 +15,11 @@ $quantity_type = $_POST['quantity_type'];
 $quantity = ($quantity_type == 'unit') ? $_POST['unit_quantity'] : $_POST['combo_quantity'];
 $flavor = $_POST['flavor'];
 
-// Verifica se os campos obrigatórios estão preenchidos
 if (empty($product) || empty($quantity)) {
     echo "Todos os campos são obrigatórios!";
     exit();
 }
 
-// Insere o pedido no banco de dados
 $sql = "INSERT INTO orders (user_id, product, quantity_type, quantity, flavor) VALUES (?, ?, ?, ?, ?)";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("issss", $user_id, $product, $quantity_type, $quantity, $flavor);

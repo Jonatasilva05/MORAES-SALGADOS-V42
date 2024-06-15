@@ -14,19 +14,20 @@
 <body>
 <!-- partial:index.partial.html -->
 <div id="teste">
-  <!--Animação final das barras de fechamneto que cobre a tela inteira-->
-<div class="background background0"></div>
-<div class="background background1"></div>
-<div class="background background2"></div>
-<div class="background background3"></div>
-<div class="background background4"></div>
-<div class="background background5"></div>
-<div class="background background6"></div>
-<div class="background background7"></div>
-<div class="background background8"></div>
 
-<!--Texto a ser exibido-->
-<div class="criterion">
+  <!--Animação final das barras de fechamneto que cobre a tela inteira-->
+  <div class="background background0"></div>
+  <div class="background background1"></div>
+  <div class="background background2"></div>
+  <div class="background background3"></div>
+  <div class="background background4"></div>
+  <div class="background background5"></div>
+  <div class="background background6"></div>
+  <div class="background background7"></div>
+  <div class="background background8"></div>
+
+  <!--Texto a ser exibido-->
+  <div class="criterion">
   <div class="text text0">B</div>
   <div class="text text1">E</div>
   <div class="text text2">M</div>

@@ -46,6 +46,7 @@ require_once('./config.php');
             background-color: #f9f9f9;
         }
     </style>
+    
 </head>
 <body>
     <h1>Painel do Administrador</h1>

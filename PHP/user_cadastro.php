@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-    // Verificar se o email já está em uso
+    // vai Verificar se o email já está em uso
     $sql = "SELECT id FROM users WHERE email = '$email'";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {

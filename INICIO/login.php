@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['user_type'] = 'user'; // Definir o tipo de usuário como 'user'
             header("Location: ./PHP/user_bemvindo.php"); // Redirecionar para o painel do usuário
         } else {
-            echo "Usuário ou senha inválidos.";
+            
         }
     }
 }

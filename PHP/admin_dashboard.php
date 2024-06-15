@@ -22,6 +22,7 @@ require_once('./config.php');
    <link rel="icon" href="./IMGs/LOGOS/ICONE_MS_ABA_32.png" type="image/png">
 
     <title>Painel de Administração</title>
+    
 </head>
 <body>
     <div class="container">

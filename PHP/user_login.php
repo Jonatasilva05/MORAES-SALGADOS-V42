@@ -6,7 +6,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email_or_username = $_POST['email_or_username'];
     $password = $_POST['password'];
 
-    // Verificar se o email_or_username é um email ou nome de usuário
     if (filter_var($email_or_username, FILTER_VALIDATE_EMAIL)) {
         $sql = "SELECT id, name, is_admin FROM users WHERE email = '$email_or_username' AND password = '$password'";
     } else {
@@ -21,7 +20,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['user_name'] = $row['name'];
         $_SESSION['is_admin'] = $row['is_admin'];
         
-        // Redirecionar para a página de administração ou usuário dependendo do tipo de usuário
         if ($_SESSION['is_admin'] == 1) {
             header("Location: ./dashboard.php");
         } else {
