@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 15, 2024 at 07:01 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Tempo de geração: 17/06/2024 às 20:32
+-- Versão do servidor: 10.4.32-MariaDB
+-- Versão do PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `moraesalgados`
+-- Banco de dados: `moraesalgados`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `confirmed_orders`
+-- Estrutura para tabela `confirmed_orders`
 --
 
 CREATE TABLE `confirmed_orders` (
@@ -45,24 +45,10 @@ CREATE TABLE `confirmed_orders` (
   `can_modify_cancel` tinyint(1) DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `confirmed_orders`
---
-
-INSERT INTO `confirmed_orders` (`id`, `user_id`, `user_name`, `user_email`, `endereco`, `numero`, `bairro`, `cidade`, `product`, `quantity_type`, `quantity`, `flavor`, `order_date`, `status`, `can_modify_cancel`) VALUES
-(1, 2, 'jhon', 'jonatasmoraes05@gmail.com', 'Rua Alderico Bussadori Filho', '206', 'Jardim Maria Luiza I', 'Taquaritinga', 'Frango', 'unit', 1, 'Coxinha', '2024-06-15 00:54:46', 'delivered', 1),
-(2, 2, 'jhon', 'jonatasmoraes05@gmail.com', 'Rua Alderico Bussadori Filho', '206', 'Jardim Maria Luiza I', 'Taquaritinga', 'Presunto e Queijo', 'unit', 1, 'Bolinho', '2024-06-15 01:06:17', '', 1),
-(3, 2, 'jhon', 'jonatasmoraes05@gmail.com', 'Rua Alderico Bussadori Filho', '206', 'Jardim Maria Luiza I', 'Taquaritinga', 'Presunto e Queijo', 'combo', 40, 'Risoles', '2024-06-15 01:06:26', '', 1),
-(4, 2, 'jhon', 'jonatasmoraes05@gmail.com', 'Rua Alderico Bussadori Filho', '206', 'Jardim Maria Luiza I', 'Taquaritinga', 'Presunto e Queijo', 'unit', 1, 'Bolinho', '2024-06-15 01:15:40', 'delivered', 1),
-(5, 2, 'jhon', 'jonatasmoraes05@gmail.com', 'Rua Alderico Bussadori Filho', '206', 'Jardim Maria Luiza I', 'Taquaritinga', 'Frango', 'combo', 20, 'Coxinha', '2024-06-15 01:29:14', 'delivered', 1),
-(6, 2, 'jhon', 'jonatasmoraes05@gmail.com', 'Rua Alderico Bussadori Filho', '206', 'Jardim Maria Luiza I', 'Taquaritinga', 'Presunto e Queijo', 'unit', 1, 'Bolinho', '2024-06-15 01:36:03', 'delivered', 1),
-(8, 2, 'jhon', 'jonatasmoraes05@gmail.com', 'Rua Alderico Bussadori Filho', '206', 'Jardim Maria Luiza I', 'Taquaritinga', 'Presunto e Queijo', 'unit', 1, 'Bolinho', '2024-06-15 01:42:09', 'delivered', 1),
-(9, 2, 'jhon', 'jonatasmoraes05@gmail.com', 'Rua Alderico Bussadori Filho', '206', 'Jardim Maria Luiza I', 'Taquaritinga', 'Presunto e Queijo', 'unit', 1, 'Risoles', '2024-06-15 01:47:28', 'delivered', 1);
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `enderecos_entrega`
+-- Estrutura para tabela `enderecos_entrega`
 --
 
 CREATE TABLE `enderecos_entrega` (
@@ -78,20 +64,14 @@ CREATE TABLE `enderecos_entrega` (
   `ponto_referencia` text DEFAULT NULL,
   `moradia` varchar(10) NOT NULL,
   `bloco` varchar(10) DEFAULT NULL,
-  `numero_apt` varchar(10) DEFAULT NULL
+  `numero_apt` varchar(10) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `enderecos_entrega`
---
-
-INSERT INTO `enderecos_entrega` (`id`, `nome`, `endereco`, `numero`, `bairro`, `cidade`, `cep`, `telefone`, `whatsapp`, `ponto_referencia`, `moradia`, `bloco`, `numero_apt`) VALUES
-(15, 'Jônatas de Moraes da Silva', 'Rua Alderico Bussadori Filho', '206', 'Jardim Maria Luiza I', 'Taquaritinga', '15906838', '1699999-9090', '1699999-9090', '', 'casa', '', '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orders`
+-- Estrutura para tabela `orders`
 --
 
 CREATE TABLE `orders` (
@@ -107,7 +87,7 @@ CREATE TABLE `orders` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Estrutura para tabela `users`
 --
 
 CREATE TABLE `users` (
@@ -119,83 +99,83 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `users`
+-- Despejando dados para a tabela `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `is_admin`) VALUES
-(1, 'admin', 'admin@example.com', '123456', 1),
-(2, 'jhon', 'jonatasmoraes05@gmail.com', '123456', 0);
+(1, 'admin', 'admin@exemplo.com', '12345', 1),
+(27, 'Jônatas', 'jonatasmoraes05@gmail.com', '123456', 0);
 
 --
--- Indexes for dumped tables
+-- Índices para tabelas despejadas
 --
 
 --
--- Indexes for table `confirmed_orders`
+-- Índices de tabela `confirmed_orders`
 --
 ALTER TABLE `confirmed_orders`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`);
 
 --
--- Indexes for table `enderecos_entrega`
+-- Índices de tabela `enderecos_entrega`
 --
 ALTER TABLE `enderecos_entrega`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `orders`
+-- Índices de tabela `orders`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`);
 
 --
--- Indexes for table `users`
+-- Índices de tabela `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT para tabelas despejadas
 --
 
 --
--- AUTO_INCREMENT for table `confirmed_orders`
+-- AUTO_INCREMENT de tabela `confirmed_orders`
 --
 ALTER TABLE `confirmed_orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT for table `enderecos_entrega`
+-- AUTO_INCREMENT de tabela `enderecos_entrega`
 --
 ALTER TABLE `enderecos_entrega`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT for table `orders`
+-- AUTO_INCREMENT de tabela `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT de tabela `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
--- Constraints for dumped tables
+-- Restrições para tabelas despejadas
 --
 
 --
--- Constraints for table `confirmed_orders`
+-- Restrições para tabelas `confirmed_orders`
 --
 ALTER TABLE `confirmed_orders`
   ADD CONSTRAINT `confirmed_orders_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
--- Constraints for table `orders`
+-- Restrições para tabelas `orders`
 --
 ALTER TABLE `orders`
   ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
