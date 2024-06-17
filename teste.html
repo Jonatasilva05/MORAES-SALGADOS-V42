@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload de Foto de Perfil</title>
+    <style>
+      .profile-pic {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #ddd;
+        }
+        .file-input {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload de Foto de Perfil</h1>
+    <div>
+        <img id="profilePic" class="profile-pic" src="default-profile.png" alt="Foto de Perfil">
+    </div>
+    <div class="file-input">
+        <input type="file" id="fileInput" accept="image/*">
+    </div>
+    <script>
+        document.getElementById('fileInput').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('profilePic').src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,10 +1,11 @@
-#header #logoNeutro {
-    display: none;
+body{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 150px;
 }
 
 .card {
-    position: relative;
-    top: 100px;
     width: 300px;
     height: 200px;
     background: #243137;
@@ -75,7 +76,7 @@
   }
   
   .content .logo .logo2 {
-    height: 42px;
+    height: 33px;
     position: absolute;
     left: 33px;
   }
