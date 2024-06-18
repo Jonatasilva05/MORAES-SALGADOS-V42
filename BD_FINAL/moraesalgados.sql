@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
 -- Tempo de geração: 18/06/2024 às 22:07
+=======
+-- Tempo de geração: 17/06/2024 às 20:32
+>>>>>>> 8ca3cca4fd7331fe7e6aa7d5d8597f007234ca6f
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -45,6 +49,7 @@ CREATE TABLE `confirmed_orders` (
   `can_modify_cancel` tinyint(1) DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+<<<<<<< HEAD
 --
 -- Despejando dados para a tabela `confirmed_orders`
 --
@@ -60,6 +65,8 @@ INSERT INTO `confirmed_orders` (`id`, `user_id`, `user_name`, `user_email`, `end
 (28, 27, 'Jônatas', 'jonatasmoraes05@gmail.com', 'Rua Alderico Bussadori Filho', '206', 'Jardim Maria Luiza I', 'Taquaritinga', 'Croquete de Carne', 'unit', 1, 'Croquete', '2024-06-18 17:03:12', 'rejected', 1),
 (29, 27, 'Jônatas', 'jonatasmoraes05@gmail.com', 'Rua Alderico Bussadori Filho', '206', 'Jardim Maria Luiza I', 'Taquaritinga', 'Frango', 'unit', 1, 'Coxinha', '2024-06-18 17:03:15', 'cancelled', 1);
 
+=======
+>>>>>>> 8ca3cca4fd7331fe7e6aa7d5d8597f007234ca6f
 -- --------------------------------------------------------
 
 --
@@ -83,6 +90,7 @@ CREATE TABLE `enderecos_entrega` (
   `user_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+<<<<<<< HEAD
 --
 -- Despejando dados para a tabela `enderecos_entrega`
 --
@@ -91,6 +99,8 @@ INSERT INTO `enderecos_entrega` (`id`, `nome`, `endereco`, `numero`, `bairro`, `
 (19, 'jhon', 'Rua Alderico Bussadori Filho', '206', 'Jardim Maria Luiza I', 'Taquaritinga', '15906838', '1699999999', '1699999999', '', 'apt', '33', '33', 27),
 (20, 's', 'Rua Alderico Bussadori Filho', '4', 'Jardim Maria Luiza I', 'Taquaritinga', '15906838', '(16)996030585', '16996030585', '', 'apt', 'e4', '990', 28);
 
+=======
+>>>>>>> 8ca3cca4fd7331fe7e6aa7d5d8597f007234ca6f
 -- --------------------------------------------------------
 
 --
@@ -127,8 +137,12 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `is_admin`) VALUES
 (1, 'admin', 'admin@exemplo.com', '12345', 1),
+<<<<<<< HEAD
 (27, 'Jônatas', 'jonatasmoraes05@gmail.com', '123456', 0),
 (28, 'teste', 'teste@gmail.com', '123456', 0);
+=======
+(27, 'Jônatas', 'jonatasmoraes05@gmail.com', '123456', 0);
+>>>>>>> 8ca3cca4fd7331fe7e6aa7d5d8597f007234ca6f
 
 --
 -- Índices para tabelas despejadas
@@ -169,25 +183,41 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de tabela `confirmed_orders`
 --
 ALTER TABLE `confirmed_orders`
+<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+>>>>>>> 8ca3cca4fd7331fe7e6aa7d5d8597f007234ca6f
 
 --
 -- AUTO_INCREMENT de tabela `enderecos_entrega`
 --
 ALTER TABLE `enderecos_entrega`
+<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+>>>>>>> 8ca3cca4fd7331fe7e6aa7d5d8597f007234ca6f
 
 --
 -- AUTO_INCREMENT de tabela `orders`
 --
 ALTER TABLE `orders`
+<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+>>>>>>> 8ca3cca4fd7331fe7e6aa7d5d8597f007234ca6f
 
 --
 -- AUTO_INCREMENT de tabela `users`
 --
 ALTER TABLE `users`
+<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+>>>>>>> 8ca3cca4fd7331fe7e6aa7d5d8597f007234ca6f
 
 --
 -- Restrições para tabelas despejadas
@@ -200,12 +230,15 @@ ALTER TABLE `confirmed_orders`
   ADD CONSTRAINT `confirmed_orders_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
+<<<<<<< HEAD
 -- Restrições para tabelas `enderecos_entrega`
 --
 ALTER TABLE `enderecos_entrega`
   ADD CONSTRAINT `enderecos_entrega_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
+=======
+>>>>>>> 8ca3cca4fd7331fe7e6aa7d5d8597f007234ca6f
 -- Restrições para tabelas `orders`
 --
 ALTER TABLE `orders`
