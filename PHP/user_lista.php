@@ -2,8 +2,23 @@
 session_start();
 require_once('./config.php');
 
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../index.php");
+    exit();
+}
+
 $user_id = $_SESSION['user_id'];
 
+// Buscar informações do usuário
+$user_sql = "SELECT name FROM users WHERE id = ?";
+$user_stmt = $conn->prepare($user_sql);
+$user_stmt->bind_param("i", $user_id);
+$user_stmt->execute();
+$user_result = $user_stmt->get_result();
+$user_row = $user_result->fetch_assoc();
+$user_name = $user_row['name'];
+
+// Buscar pedidos do usuário
 $sql = "SELECT id, product, quantity_type, quantity, flavor, order_date FROM orders WHERE user_id = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $user_id);
@@ -17,18 +32,15 @@ $total_geral = 0;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./CSS/user_lista.css">
-
-    <!--IMAGEM ABA-->
+    <link rel="stylesheet" href="./CSS/admin_user.css">
     <link rel="icon" href="./IMGs/LOGOS/ICONE_MS_ABA_32.png" type="image/png">
-
     <title>Minha Lista de Pedidos</title>
 </head>
 <body>
     <div class="container">
         <h1>Minha Lista de Pedidos</h1>
         <?php if ($result->num_rows > 0): ?>
-            <table> 
+            <table>
                 <thead>
                     <tr>
                         <th>Produto</th>
@@ -43,44 +55,23 @@ $total_geral = 0;
                 <tbody>
                     <?php while($row = $result->fetch_assoc()): ?>
                         <tr>
-                            <td>
-                                <?php 
-                                if ($row['flavor'] == 1) {
-                                    echo "Coxinha";
-                                } elseif ($row['flavor'] == 2) {
-                                    echo "Bolinho";
-                                } elseif ($row['flavor'] == 3) {
-                                    echo "Risoles";
-                                } elseif ($row['flavor'] == 4) {
-                                    echo "Esfirra";
-                                } elseif ($row['flavor'] == 5) {
-                                    echo "Salsicha";
-                                } elseif ($row['flavor'] == 6) {
-                                    echo "Croquete";
-                                } else {
-                                    echo htmlspecialchars($row['flavor']);
-                                }
-                                ?>
-                            </td>
                             <td><?php echo htmlspecialchars($row['product']); ?></td>
+                            <td><?php echo htmlspecialchars($row['flavor']); ?></td>
                             <td><?php echo htmlspecialchars($row['quantity_type']); ?></td>
                             <td><?php echo htmlspecialchars($row['quantity']); ?></td>
                             <?php
-                            
-                            //MÉTODO PARA CALCULO DOS PRODUTOS
                             $total_produto = 0;
                             if ($row['quantity_type'] == 'unit') {
                                 $total_produto = $row['quantity'] * 5;
                             } elseif ($row['quantity_type'] == 'combo') {
-                                $total_produto = $row['quantity'] + 30;
+                                $total_produto = $row['quantity'] * 30;
                             }
-                            $total_geral += $total_produto; //MOSTRA O VALOR FINAL DA LISTA DE PEDIDOS  
+                            $total_geral += $total_produto;
                             ?>
                             <td><?php echo "R$ " . number_format($total_produto, 2, ',', '.'); ?></td>
                             <td><?php echo htmlspecialchars($row['order_date']); ?></td>
                             <td>
-                                <br>
-                                <a href="user_editlista.php?id=<?php echo $row['id'];?>">
+                                <a href="user_editlista.php?id=<?php echo $row['id']; ?>">
                                     <button class="noselect">
                                         <span class="text">Editar</span>
                                         <span class="icon">
@@ -100,7 +91,7 @@ $total_geral = 0;
                                             </svg>
                                         </span>
                                     </button>
-                                </a>                                
+                                </a>
                             </td>
                         </tr>
                     <?php endwhile; ?>
@@ -118,28 +109,35 @@ $total_geral = 0;
             </form>
 
             <?php
-                if (isset($_SESSION['endereco_entrega']) && is_array($_SESSION['endereco_entrega'])) {
-                    $endereco_entrega = $_SESSION['endereco_entrega'];
-                    echo "<h2>Endereço de Entrega</h2>";
-                    echo "<p><strong>Endereço:</strong> " . $endereco_entrega['endereco'] . "</p>";
-                    echo "<p><strong>Número:</strong> " . $endereco_entrega['numero'] . "</p>";
-                    echo "<p><strong>Bairro:</strong> " . $endereco_entrega['bairro'] . "</p>";
-                    echo "<p><strong>Cidade:</strong> " . $endereco_entrega['cidade'] . "</p>";
-                } else {
-                    echo "<p>Nenhum endereço de entrega selecionado.</p>";
-                }
+            if (isset($_SESSION['endereco_entrega']) && is_array($_SESSION['endereco_entrega'])) {
+                $endereco_entrega = $_SESSION['endereco_entrega'];
+                echo "<h2>Endereço de Entrega</h2>";
+                echo "<p><strong>Nome do Comprador:</strong> " . htmlspecialchars($endereco_entrega['nome']) . "</p>";
+                echo "<p><strong>Endereço:</strong> " . htmlspecialchars($endereco_entrega['endereco']) . "</p>";
+                echo "<p><strong>Número:</strong> " . htmlspecialchars($endereco_entrega['numero']) . "</p>";
+                echo "<p><strong>Bairro:</strong> " . htmlspecialchars($endereco_entrega['bairro']) . "</p>";
+                echo "<p><strong>Cidade:</strong> " . htmlspecialchars($endereco_entrega['cidade']) . "</p>";
 
+                if ($endereco_entrega['moradia'] == 'apt') {
+                    echo "<p><strong>Bloco:</strong> " . htmlspecialchars($endereco_entrega['bloco']) . "</p>";
+                    echo "<p><strong>Número do Apartamento:</strong> " . htmlspecialchars($endereco_entrega['numero_apt']) . "</p>";
+                }
+            } else {
+                echo "<p>Nenhum endereço de entrega selecionado.</p>";
+            }
             ?>
 
-            <?php if ($result->num_rows > 0): ?>
-                <form action="confirmarPedido.php" method="post">
-                    <button type="submit" onclick="return confirm('Pedido Gerado');" <?php echo ($result->num_rows == 0) ? "disabled" : ""; ?>>Confirmar Pedido</button>
+            <?php if ($result->num_rows > 0 && isset($_SESSION['endereco_entrega']) && is_array($_SESSION['endereco_entrega'])): ?>
+                <form action="user_confirmarPedido.php" method="post">
+                    <button type="submit" onclick="return confirm('Confirmar pedido?');">Confirmar Pedido</button>
                 </form>
+            <?php else: ?>
+                <p>Por Favor Analise os pedidos, Após isso confirme</p>
             <?php endif; ?>
         <?php else: ?>
             <p>Você ainda não fez nenhum pedido.</p>
             <br>
-            <a href="cadastro_endereco.php">Cadastrar Endereço</a>
+            <a href="./cadastro_endereco.php">Cadastrar Endereço</a>
         <?php endif; ?>
         <br>
         <a href="./user_index.php">Voltar para o Menu</a>

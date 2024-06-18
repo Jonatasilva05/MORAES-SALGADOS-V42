@@ -9,8 +9,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $numero = $_POST['numero'];
     $bairro = $_POST['bairro'];
     $cidade = $_POST['cidade'];
+    $cep = $_POST['cep'];
 
-    $sql = "UPDATE enderecos_entrega SET endereco='$endereco', numero='$numero', bairro='$bairro', cidade='$cidade' WHERE id=$endereco_id";
+    $sql = "UPDATE enderecos_entrega SET endereco='$endereco', numero='$numero', bairro='$bairro', cidade='$cidade', cep='$cep' WHERE id=$endereco_id";
 
     if ($conn->query($sql) === TRUE) {
         echo "Endereço atualizado com sucesso!";

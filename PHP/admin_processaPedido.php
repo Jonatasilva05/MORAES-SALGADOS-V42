@@ -2,13 +2,16 @@
 session_start();
 require_once('./config.php');
 
-// Verificação de autenticação do administrador (a ser implementada)
+if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_name']) || $_SESSION['is_admin'] != 1) {
+    header("Location: ../login.php");
+    exit();
+}
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['order_id']) && isset($_POST['action'])) {
     $order_id = intval($_POST['order_id']);
     $action = $_POST['action'];
 
-    $valid_actions = ['accept', 'generating', 'generated', 'out_for_delivery', 'reject'];
+    $valid_actions = ['accept', 'generating', 'generated', 'out_for_delivery', 'reject', 'cancel'];
     if (!in_array($action, $valid_actions)) {
         header("Location: admin_receber.php");
         exit();
@@ -24,6 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['order_id']) && isset($
         $status = 'out_for_delivery';
     } elseif ($action == 'reject') {
         $status = 'rejected';
+    } elseif ($action == 'cancel') {
+        $status = 'cancelled';
     }
 
     $sql = "UPDATE confirmed_orders SET status = ? WHERE id = ?";
@@ -32,10 +37,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['order_id']) && isset($
     $stmt->execute();
     $stmt->close();
 
-    header("Location: admin_receber.php");
+    header("Location: admin_receberPedido.php");
     exit();
 } else {
-    header("Location: admin_receber.php");
+    header("Location: admin_receberPedido.php");
     exit();
 }
 ?>
