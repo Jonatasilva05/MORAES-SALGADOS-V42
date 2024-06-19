@@ -57,6 +57,8 @@ if ($result->num_rows > 0) {
                             <hr>
                             <a href="../admin_index.php" class="card-link"><button class="btnCardBody">Ir Para a Página de Inicio do Sistema Web</button></a>
                             <hr>
+                            <a href="./admin_receberPedido.php" class="card-link"><button class="btnCardBody">Ir para página de pedidos</button></a>
+                            <hr>
                             <a href="./admin_product.php" class="card-link"><button class="btnCardBody">Adicionar Novos Produtos Ou Quantidade Ao Site</button></a>
                             <hr>
                             <a href="./admin_dashboard.php" class="card-link"><button class="btnCardBody">Cadastrar Novo Usuario ou Novo Administrador</button></a>

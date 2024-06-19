@@ -1,7 +1,13 @@
 <?php
-
+session_start();
 include_once("./config.php");
 
+if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_name']) || $_SESSION['is_admin'] != 0) {
+    header("Location: ../login.php");
+    exit();
+}
+
+$user_id = $_SESSION['user_id']; 
 ?>
 
 <!DOCTYPE html>
@@ -15,14 +21,17 @@ include_once("./config.php");
 <h1>Escolher Endereço de Entrega</h1>
 
 <?php
-$sql = "SELECT * FROM enderecos_entrega";
-$resultado = $conn->query($sql);
+$sql = "SELECT * FROM enderecos_entrega WHERE user_id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$resultado = $stmt->get_result();
 
 if ($resultado->num_rows > 0) {
     echo "<form action='user_processaentrega.php' method='post'>";
     while ($row = $resultado->fetch_assoc()) {
         echo "<input type='radio' id='endereco_" . $row['id'] . "' name='endereco' value='" . $row['id'] . "' required>";
-        echo "<label for='endereco_" . $row['id'] . "'>" . $row['endereco'] . ", " . $row['numero'] . ", " . $row['bairro'] . ", " . $row['cidade'] . "</label>";
+        echo "<label for='endereco_" . $row['id'] . "'>" . $row['endereco'] . ", " . "N° " . $row['numero'] . ", " . "Bairro: " . $row['bairro'] . ", " . "Cidade: " . $row['cidade'] . "," . "cep: " . $row['cep'] . "</label>";
         echo "<button type='button' onclick='editarEndereco(" . $row['id'] . ")'>Editar</button>";
         echo "<button type='button' onclick='excluirEndereco(" . $row['id'] . ")'>Excluir</button><br>";
     }
@@ -37,6 +46,7 @@ if ($resultado->num_rows > 0) {
     echo "<a href='user_lista.php'>Voltar para menu</a>";
 }
 
+$stmt->close();
 $conn->close();
 ?>
 

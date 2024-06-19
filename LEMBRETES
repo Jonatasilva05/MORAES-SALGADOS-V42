@@ -1,0 +1,36 @@
+                        USUÁRIOS
+ ___________________________________________________________
+|   O QUE SE DEVE SER ATUALIZADO E ARRUMADO NO SITE:        |
+|                                                           |
+|   ------------------ANTES LOGIN---------------------      |
+|   1 - Botao de minha lista está chamando o login.php;     |
+|   2 - Fazer uma página de contato;                        |
+|   3 - colocar para mostrar a senha se desejar;            |
+|   4 - arrumar o botão de + e algumas funções;             |
+|   5 - Fazer uma página de contato depois login;           |
+|                                                           |  
+|                                                           |
+|   ------------------DEPOIS LOGIN---------------------     |
+|   1 - colocar a pagina sobre.php no inicio antes do login;|
+|   2 - arrumar o sobre depois do login;                    |
+|   3 - arrumar o editar pedidos;                           |
+|   4 - arrumar a calculadora de pedidos combos             |
+|                                                           |
+|   IMPLEMENTAR DEPOIS QUE ARRUMAR O QUE ESTÁ FALTANDO      |
+|                                                           |
+|   1 - Fazer uma pagina direcionada para festas;           |
+|   2 - pagina de confirmar pedidos;                        |
+| _________________________________________________________ |
+
+*************************************************************
+
+                        ADM
+ ___________________________________________________________
+|   O QUE SE DEVE SER ATUALIZADO E ARRUMADO NO SITE:        |
+|                                                           |
+|   ------------------DEPOIS LOGIN---------------------     |
+|   1 - criar uma pagina para inicio do sistema;            |
+|   2 - criar uma pagina para colocar produtos              |
+|   3 - criar uma pagina para receber os pedidos            |
+|   4 - para confirmar os pedidos                           |
+| _________________________________________________________ |
