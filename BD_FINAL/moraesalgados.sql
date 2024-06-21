@@ -1,21 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
-<<<<<<< HEAD
--- Tempo de geração: 19-Jun-2024 às 00:49
--- Versão do servidor: 10.4.24-MariaDB
--- versão do PHP: 8.1.6
-=======
-<<<<<<< HEAD
--- Tempo de geração: 18/06/2024 às 22:07
-=======
--- Tempo de geração: 17/06/2024 às 20:32
->>>>>>> 8ca3cca4fd7331fe7e6aa7d5d8597f007234ca6f
+-- Tempo de geração: 20/06/2024 às 21:35
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
->>>>>>> 88f2e856378208e533a74468bc38cab5b72f1fb7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `confirmed_orders`
+-- Estrutura para tabela `confirmed_orders`
 --
 
 CREATE TABLE `confirmed_orders` (
@@ -53,28 +43,8 @@ CREATE TABLE `confirmed_orders` (
   `order_date` datetime DEFAULT NULL,
   `status` enum('pending','accepted','generating','generated','out_for_delivery','delivered','cancelled','rejected') DEFAULT 'pending',
   `can_modify_cancel` tinyint(1) DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Extraindo dados da tabela `confirmed_orders`
---
-
-INSERT INTO `confirmed_orders` (`id`, `user_id`, `user_name`, `user_email`, `endereco`, `numero`, `bairro`, `cidade`, `product`, `quantity_type`, `quantity`, `flavor`, `order_date`, `status`, `can_modify_cancel`) VALUES
-(21, 27, 'Jônatas', 'jonatasmoraes05@gmail.com', 'Rua Alderico Bussadori Filho', '206', 'Jardim Maria Luiza I', 'Taquaritinga', 'Presunto e Queijo', 'unit', 1, 'Bolinho', '2024-06-18 16:02:11', 'cancelled', 1),
-(22, 27, 'Jônatas', 'jonatasmoraes05@gmail.com', 'Rua Alderico Bussadori Filho', '206', 'Jardim Maria Luiza I', 'Taquaritinga', 'Presunto e Queijo', 'unit', 1, 'Risoles', '2024-06-18 16:31:00', 'cancelled', 1),
-(23, 27, 'Jônatas', 'jonatasmoraes05@gmail.com', 'Rua Alderico Bussadori Filho', '206', 'Jardim Maria Luiza I', 'Taquaritinga', 'Presunto e Queijo', 'unit', 1, 'Bolinho', '2024-06-18 16:37:48', 'cancelled', 1),
-(24, 27, 'Jônatas', 'jonatasmoraes05@gmail.com', 'Rua Alderico Bussadori Filho', '206', 'Jardim Maria Luiza I', 'Taquaritinga', 'Presunto e Queijo', 'unit', 1, 'Bolinho', '2024-06-18 16:44:34', 'cancelled', 1),
-(25, 27, 'Jônatas', 'jonatasmoraes05@gmail.com', 'Rua Alderico Bussadori Filho', '206', 'Jardim Maria Luiza I', 'Taquaritinga', 'Presunto e Queijo', 'unit', 1, 'Bolinho', '2024-06-18 16:47:26', 'cancelled', 1),
-(26, 27, 'Jônatas', 'jonatasmoraes05@gmail.com', 'Rua Alderico Bussadori Filho', '206', 'Jardim Maria Luiza I', 'Taquaritinga', 'Presunto e Queijo', 'unit', 1, 'Risoles', '2024-06-18 17:03:03', 'rejected', 1),
-(27, 27, 'Jônatas', 'jonatasmoraes05@gmail.com', 'Rua Alderico Bussadori Filho', '206', 'Jardim Maria Luiza I', 'Taquaritinga', 'Salsicha Frita', 'unit', 1, 'Salsicha', '2024-06-18 17:03:09', 'delivered', 1),
-(28, 27, 'Jônatas', 'jonatasmoraes05@gmail.com', 'Rua Alderico Bussadori Filho', '206', 'Jardim Maria Luiza I', 'Taquaritinga', 'Croquete de Carne', 'unit', 1, 'Croquete', '2024-06-18 17:03:12', 'rejected', 1),
-(29, 27, 'Jônatas', 'jonatasmoraes05@gmail.com', 'Rua Alderico Bussadori Filho', '206', 'Jardim Maria Luiza I', 'Taquaritinga', 'Frango', 'unit', 1, 'Coxinha', '2024-06-18 17:03:15', 'cancelled', 1),
-(30, 29, 'renner', 'renner@gmail.com', 'rua dos reina', '985', 'sergio antonio corona', 'Santa Ernestina', 'Frango C/ Catupiry', 'unit', 1, 'Coxinha', '2024-06-18 19:38:48', 'rejected', 1),
-(31, 29, 'renner', 'renner@gmail.com', 'rua dos reina', '985', 'sergio antonio corona', 'Santa Ernestina', 'Presunto e Queijo', 'combo', 90, 'Risoles', '2024-06-18 19:42:33', 'cancelled', 1),
-(32, 29, 'renner', 'renner@gmail.com', 'rua dos reina', '985', 'sergio antonio corona', 'Santa Ernestina', 'Salsicha Frita', 'unit', 5, 'Salsicha', '2024-06-18 19:45:13', 'generating', 1),
-(33, 29, 'renner', 'renner@gmail.com', 'rua dos reina', '985', 'sergio antonio corona', 'Santa Ernestina', 'Presunto e Queijo', 'unit', 2, 'Bolinho', '2024-06-18 19:45:37', 'delivered', 1);
-
-<<<<<<< HEAD
 --
 -- Despejando dados para a tabela `confirmed_orders`
 --
@@ -90,12 +60,10 @@ INSERT INTO `confirmed_orders` (`id`, `user_id`, `user_name`, `user_email`, `end
 (28, 27, 'Jônatas', 'jonatasmoraes05@gmail.com', 'Rua Alderico Bussadori Filho', '206', 'Jardim Maria Luiza I', 'Taquaritinga', 'Croquete de Carne', 'unit', 1, 'Croquete', '2024-06-18 17:03:12', 'rejected', 1),
 (29, 27, 'Jônatas', 'jonatasmoraes05@gmail.com', 'Rua Alderico Bussadori Filho', '206', 'Jardim Maria Luiza I', 'Taquaritinga', 'Frango', 'unit', 1, 'Coxinha', '2024-06-18 17:03:15', 'cancelled', 1);
 
-=======
->>>>>>> 8ca3cca4fd7331fe7e6aa7d5d8597f007234ca6f
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `enderecos_entrega`
+-- Estrutura para tabela `enderecos_entrega`
 --
 
 CREATE TABLE `enderecos_entrega` (
@@ -113,18 +81,8 @@ CREATE TABLE `enderecos_entrega` (
   `bloco` varchar(10) DEFAULT NULL,
   `numero_apt` varchar(10) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Extraindo dados da tabela `enderecos_entrega`
---
-
-INSERT INTO `enderecos_entrega` (`id`, `nome`, `endereco`, `numero`, `bairro`, `cidade`, `cep`, `telefone`, `whatsapp`, `ponto_referencia`, `moradia`, `bloco`, `numero_apt`, `user_id`) VALUES
-(19, 'jhon', 'Rua Alderico Bussadori Filho', '206', 'Jardim Maria Luiza I', 'Taquaritinga', '15906838', '1699999999', '1699999999', '', 'apt', '33', '33', 27),
-(20, 's', 'Rua Alderico Bussadori Filho', '4', 'Jardim Maria Luiza I', 'Taquaritinga', '15906838', '(16)996030585', '16996030585', '', 'apt', 'e4', '990', 28),
-(21, 'renner', 'rua dos reina', '985', 'sergio antonio corona', 'Santa Ernestina', '15970000', '16996326681', '16996326681', '', 'casa', '', '0', 29);
-
-<<<<<<< HEAD
 --
 -- Despejando dados para a tabela `enderecos_entrega`
 --
@@ -133,12 +91,10 @@ INSERT INTO `enderecos_entrega` (`id`, `nome`, `endereco`, `numero`, `bairro`, `
 (19, 'jhon', 'Rua Alderico Bussadori Filho', '206', 'Jardim Maria Luiza I', 'Taquaritinga', '15906838', '1699999999', '1699999999', '', 'apt', '33', '33', 27),
 (20, 's', 'Rua Alderico Bussadori Filho', '4', 'Jardim Maria Luiza I', 'Taquaritinga', '15906838', '(16)996030585', '16996030585', '', 'apt', 'e4', '990', 28);
 
-=======
->>>>>>> 8ca3cca4fd7331fe7e6aa7d5d8597f007234ca6f
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `orders`
+-- Estrutura para tabela `orders`
 --
 
 CREATE TABLE `orders` (
@@ -149,12 +105,21 @@ CREATE TABLE `orders` (
   `quantity` int(11) NOT NULL,
   `order_date` timestamp NOT NULL DEFAULT current_timestamp(),
   `flavor` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `orders`
+--
+
+INSERT INTO `orders` (`id`, `user_id`, `product`, `quantity_type`, `quantity`, `order_date`, `flavor`) VALUES
+(90, 27, 'Carne-Moída', 'unit', 1, '2024-06-20 18:26:05', '2'),
+(91, 27, 'Bolinho de Queijo(APENAS QUEIJO)', 'combo', 30, '2024-06-20 18:26:12', '4'),
+(92, 27, 'Calabresa', 'unit', 1, '2024-06-20 18:26:19', 'Coxinha');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `users`
+-- Estrutura para tabela `users`
 --
 
 CREATE TABLE `users` (
@@ -163,147 +128,94 @@ CREATE TABLE `users` (
   `email` varchar(100) DEFAULT NULL,
   `password` varchar(255) NOT NULL,
   `is_admin` tinyint(1) DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `users`
+-- Despejando dados para a tabela `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `is_admin`) VALUES
 (1, 'admin', 'admin@exemplo.com', '12345', 1),
-<<<<<<< HEAD
-(27, 'Jônatas', 'jonatasmoraes05@gmail.com', '123456', 0),
-(28, 'teste', 'teste@gmail.com', '123456', 0),
-(29, 'renner', 'renner@gmail.com', '12345678', 0);
-=======
-<<<<<<< HEAD
 (27, 'Jônatas', 'jonatasmoraes05@gmail.com', '123456', 0),
 (28, 'teste', 'teste@gmail.com', '123456', 0);
-=======
-(27, 'Jônatas', 'jonatasmoraes05@gmail.com', '123456', 0);
->>>>>>> 8ca3cca4fd7331fe7e6aa7d5d8597f007234ca6f
->>>>>>> 88f2e856378208e533a74468bc38cab5b72f1fb7
 
 --
 -- Índices para tabelas despejadas
 --
 
 --
--- Índices para tabela `confirmed_orders`
+-- Índices de tabela `confirmed_orders`
 --
 ALTER TABLE `confirmed_orders`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`);
 
 --
--- Índices para tabela `enderecos_entrega`
+-- Índices de tabela `enderecos_entrega`
 --
 ALTER TABLE `enderecos_entrega`
   ADD PRIMARY KEY (`id`),
   ADD KEY `enderecos_entrega_ibfk_1` (`user_id`);
 
 --
--- Índices para tabela `orders`
+-- Índices de tabela `orders`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`);
 
 --
--- Índices para tabela `users`
+-- Índices de tabela `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT para tabelas despejadas
 --
 
 --
 -- AUTO_INCREMENT de tabela `confirmed_orders`
 --
 ALTER TABLE `confirmed_orders`
-<<<<<<< HEAD
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
-=======
-<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
-=======
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
->>>>>>> 8ca3cca4fd7331fe7e6aa7d5d8597f007234ca6f
->>>>>>> 88f2e856378208e533a74468bc38cab5b72f1fb7
 
 --
 -- AUTO_INCREMENT de tabela `enderecos_entrega`
 --
 ALTER TABLE `enderecos_entrega`
-<<<<<<< HEAD
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
-=======
-<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
-=======
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
->>>>>>> 8ca3cca4fd7331fe7e6aa7d5d8597f007234ca6f
->>>>>>> 88f2e856378208e533a74468bc38cab5b72f1fb7
 
 --
 -- AUTO_INCREMENT de tabela `orders`
 --
 ALTER TABLE `orders`
-<<<<<<< HEAD
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
-=======
-<<<<<<< HEAD
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
-=======
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
->>>>>>> 8ca3cca4fd7331fe7e6aa7d5d8597f007234ca6f
->>>>>>> 88f2e856378208e533a74468bc38cab5b72f1fb7
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- AUTO_INCREMENT de tabela `users`
 --
 ALTER TABLE `users`
-<<<<<<< HEAD
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
-=======
-<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
-=======
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
->>>>>>> 8ca3cca4fd7331fe7e6aa7d5d8597f007234ca6f
->>>>>>> 88f2e856378208e533a74468bc38cab5b72f1fb7
 
 --
--- Restrições para despejos de tabelas
+-- Restrições para tabelas despejadas
 --
 
 --
--- Limitadores para a tabela `confirmed_orders`
+-- Restrições para tabelas `confirmed_orders`
 --
 ALTER TABLE `confirmed_orders`
   ADD CONSTRAINT `confirmed_orders_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
-<<<<<<< HEAD
--- Limitadores para a tabela `enderecos_entrega`
-=======
-<<<<<<< HEAD
 -- Restrições para tabelas `enderecos_entrega`
->>>>>>> 88f2e856378208e533a74468bc38cab5b72f1fb7
 --
 ALTER TABLE `enderecos_entrega`
   ADD CONSTRAINT `enderecos_entrega_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
-<<<<<<< HEAD
--- Limitadores para a tabela `orders`
-=======
-=======
->>>>>>> 8ca3cca4fd7331fe7e6aa7d5d8597f007234ca6f
 -- Restrições para tabelas `orders`
->>>>>>> 88f2e856378208e533a74468bc38cab5b72f1fb7
 --
 ALTER TABLE `orders`
   ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);

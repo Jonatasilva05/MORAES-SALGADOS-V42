@@ -56,54 +56,319 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-
-    <!--IMAGEM ABA-->
-   <link rel="icon" href="./IMGs/LOGOS/ICONE_MS_ABA_32.png" type="image/png">
-
+    <link rel="icon" href="./IMGs/LOGOS/ICONE_MS_ABA_32.png" type="image/png">
     <title>Editar Pedido</title>
 </head>
 <body>
     <div class="container">
         <h1>Editar Pedido</h1>
-        <form action="" method="post">
-            <label for="product">Produto:</label>
-            <select id="product" name="product">
-                <option value="Produto 1" <?php echo ($order['product'] == 'Produto 1') ? 'selected' : ''; ?>>Produto 1</option>
-                <option value="Produto 2" <?php echo ($order['product'] == 'Produto 2') ? 'selected' : ''; ?>>Produto 2</option>
-                <option value="Produto 3" <?php echo ($order['product'] == 'Produto 3') ? 'selected' : ''; ?>>Produto 3</option>
-            </select>
 
-            <label for="quantityType">Tipo de Quantidade:</label>
-            <input type="radio" id="unit" name="quantity_type" value="unit" <?php echo ($order['quantity_type'] == 'unit') ? 'checked' : ''; ?>>
-            <label for="unit">Unidades</label>
-            <input type="radio" id="combo" name="quantity_type" value="combo" <?php echo ($order['quantity_type'] == 'combo') ? 'checked' : ''; ?>>
-            <label for="combo">Combos</label>
-            <br>
-
-            <div id="unitQuantityContainer" style="display: <?php echo ($order['quantity_type'] == 'unit') ? 'block' : 'none'; ?>;">
-                <label for="unitQuantity">Quantidade de Unidades:</label>
-                <input type="number" id="unitQuantity" name="unit_quantity" min="1" value="<?php echo ($order['quantity_type'] == 'unit') ? $order['quantity'] : '1'; ?>">
-            </div>
-
-            <div id="comboQuantityContainer" style="display: <?php echo ($order['quantity_type'] == 'combo') ? 'block' : 'none'; ?>;">
-                <label for="comboQuantity">Quantidade de Combos:</label>
-                <select id="comboQuantity" name="combo_quantity">
-                    <option value="20" <?php echo ($order['quantity'] == 20) ? 'selected' : ''; ?>>20</option>
-                    <option value="30" <?php echo ($order['quantity'] == 30) ? 'selected' : ''; ?>>30</option>
-                    <option value="40" <?php echo ($order['quantity'] == 40) ? 'selected' : ''; ?>>40</option>
-                    <option value="50" <?php echo ($order['quantity'] == 50) ? 'selected' : ''; ?>>50</option>
-                    <option value="70" <?php echo ($order['quantity'] == 70) ? 'selected' : ''; ?>>70</option>
-                    <option value="80" <?php echo ($order['quantity'] == 80) ? 'selected' : ''; ?>>80</option>
-                    <option value="90" <?php echo ($order['quantity'] == 90) ? 'selected' : ''; ?>>90</option>
-                    <option value="100" <?php echo ($order['quantity'] == 100) ? 'selected' : ''; ?>>100</option>
+        <?php if ($order['flavor'] == 'Coxinha' || $order['flavor'] == '1'): ?>
+            
+            <!--COXINHA-->
+            <form action="" method="post">
+                <label for="product">Produto:</label>
+                <select id="product" name="product">
+                    <option value="Frango" <?php echo ($order['product'] == 'Frango') ? 'selected' : ''; ?>>Frango</option>
+                    <option value="Frango C/ Catupiry" <?php echo ($order['product'] == 'Frango C/ Catupiry') ? 'selected' : ''; ?>>Frango C/ Catupiry</option>
+                    <option value="Carne-Moída" <?php echo ($order['product'] == 'Carne-Moída') ? 'selected' : ''; ?>>Carne-Moída</option>
+                    <option value="Calabresa" <?php echo ($order['product'] == 'Calabresa') ? 'selected' : ''; ?>>Calabresa</option>
+                    <option value="Calabresa C/ Catupiry" <?php echo ($order['product'] == 'Calabresa C/ Catupiry') ? 'selected' : ''; ?>>Calabresa C/ Catupiry</option>
+                    <option value="Pernil" <?php echo ($order['product'] == 'Pernil') ? 'selected' : ''; ?>>Pernil</option>
                 </select>
-            </div>
 
-            <label for="flavor">Sabor:</label>
-            <input type="text" id="flavor" name="flavor" value="<?php $flavor ?>">
+                <label for="quantityType">Tipo de Quantidade:</label>
+                <input type="radio" id="unit" name="quantity_type" value="unit" <?php echo ($order['quantity_type'] == 'unit') ? 'checked' : ''; ?>>
+                <label for="unit">Unidades</label>
+                <input type="radio" id="combo" name="quantity_type" value="combo" <?php echo ($order['quantity_type'] == 'combo') ? 'checked' : ''; ?>>
+                <label for="combo">Combos</label>
+                <br>
 
-            <button type="submit">Atualizar Pedido</button>
-        </form>
+                <div id="unitQuantityContainer" style="display: <?php echo ($order['quantity_type'] == 'unit') ? 'block' : 'none'; ?>;">
+                    <label for="unitQuantity">Quantidade de Unidades:</label>
+                    <input type="number" id="unitQuantity" name="unit_quantity" min="1" value="<?php echo ($order['quantity_type'] == 'unit') ? $order['quantity'] : '1'; ?>">
+                </div>
+
+                <div id="comboQuantityContainer" style="display: <?php echo ($order['quantity_type'] == 'combo') ? 'block' : 'none'; ?>;">
+                    <label for="comboQuantity">Quantidade de Combos:</label>
+                    <select id="comboQuantity" name="combo_quantity">
+                        <option value="20" <?php echo ($order['quantity'] == 20) ? 'selected' : ''; ?>>20</option>
+                        <option value="30" <?php echo ($order['quantity'] == 30) ? 'selected' : ''; ?>>30</option>
+                        <option value="40" <?php echo ($order['quantity'] == 40) ? 'selected' : ''; ?>>40</option>
+                        <option value="50" <?php echo ($order['quantity'] == 50) ? 'selected' : ''; ?>>50</option>
+                        <option value="70" <?php echo ($order['quantity'] == 70) ? 'selected' : ''; ?>>70</option>
+                        <option value="80" <?php echo ($order['quantity'] == 80) ? 'selected' : ''; ?>>80</option>
+                        <option value="90" <?php echo ($order['quantity'] == 90) ? 'selected' : ''; ?>>90</option>
+                        <option value="100" <?php echo ($order['quantity'] == 100) ? 'selected' : ''; ?>>100</option>
+                    </select>
+                </div>
+
+                <label for="flavor">Sabor:</label>
+                    <select id="flavor" name="flavor">
+                        <option value="1" <?php echo ($order['flavor'] == 1) ? 'selected' : ''; ?>>Coxinha</option>
+                        <option value="2" <?php echo ($order['flavor'] == 2) ? 'selected' : ''; ?>>Bolinho</option>
+                        <option value="3" <?php echo ($order['flavor'] == 3) ? 'selected' : ''; ?>>Risoles</option>
+                        <option value="4" <?php echo ($order['flavor'] == 4) ? 'selected' : ''; ?>>Esfirra</option>
+                        <option value="5" <?php echo ($order['flavor'] == 5) ? 'selected' : ''; ?>>Salsicha</option>
+                        <option value="6" <?php echo ($order['flavor'] == 6) ? 'selected' : ''; ?>>Croquete</option>
+                    </select>
+
+                <button type="submit">Atualizar Pedido</button>
+            </form>
+
+        <?php elseif ($order['flavor'] == 'Bolinho' || $order['flavor'] == '2'): ?>
+           
+            <!--BOLINHO-->
+            <form action="" method="post">
+                <label for="product">Produto:</label>
+                <select id="product" name="product">
+                    <option value="Presunto e Queijo" <?php echo ($order['product'] == 'Presunto e Queijo') ? 'selected' : ''; ?>>Presunto e Queijo</option>
+                    <option value="Carne-Moída" <?php echo ($order['product'] == 'Frango C/ Catupiry') ? 'selected' : ''; ?>>Frango C/ Catupiry</option>
+                    <option value="Ovo" <?php echo ($order['product'] == 'Ovo') ? 'selected' : ''; ?>>Ovo</option>
+                    <option value="Queijo(APENAS QUEIJO)" <?php echo ($order['product'] == 'Queijo(APENAS QUEIJO)') ? 'selected' : ''; ?>>Queijo(APENAS QUEIJO)</option>
+                </select>
+
+                <label for="quantityType">Tipo de Quantidade:</label>
+                <input type="radio" id="unit" name="quantity_type" value="unit" <?php echo ($order['quantity_type'] == 'unit') ? 'checked' : ''; ?>>
+                <label for="unit">Unidades</label>
+                <input type="radio" id="combo" name="quantity_type" value="combo" <?php echo ($order['quantity_type'] == 'combo') ? 'checked' : ''; ?>>
+                <label for="combo">Combos</label>
+                <br>
+
+                <div id="unitQuantityContainer" style="display: <?php echo ($order['quantity_type'] == 'unit') ? 'block' : 'none'; ?>;">
+                    <label for="unitQuantity">Quantidade de Unidades:</label>
+                    <input type="number" id="unitQuantity" name="unit_quantity" min="1" value="<?php echo ($order['quantity_type'] == 'unit') ? $order['quantity'] : '1'; ?>">
+                </div>
+
+                <div id="comboQuantityContainer" style="display: <?php echo ($order['quantity_type'] == 'combo') ? 'block' : 'none'; ?>;">
+                    <label for="comboQuantity">Quantidade de Combos:</label>
+                    <select id="comboQuantity" name="combo_quantity">
+                        <option value="20" <?php echo ($order['quantity'] == 20) ? 'selected' : ''; ?>>20</option>
+                        <option value="30" <?php echo ($order['quantity'] == 30) ? 'selected' : ''; ?>>30</option>
+                        <option value="40" <?php echo ($order['quantity'] == 40) ? 'selected' : ''; ?>>40</option>
+                        <option value="50" <?php echo ($order['quantity'] == 50) ? 'selected' : ''; ?>>50</option>
+                        <option value="70" <?php echo ($order['quantity'] == 70) ? 'selected' : ''; ?>>70</option>
+                        <option value="80" <?php echo ($order['quantity'] == 80) ? 'selected' : ''; ?>>80</option>
+                        <option value="90" <?php echo ($order['quantity'] == 90) ? 'selected' : ''; ?>>90</option>
+                        <option value="100" <?php echo ($order['quantity'] == 100) ? 'selected' : ''; ?>>100</option>
+                    </select>
+                </div>
+
+                <label for="flavor">Sabor:</label>
+                    <select id="flavor" name="flavor">
+                        <option value="1" <?php echo ($order['flavor'] == 1) ? 'selected' : ''; ?>>Coxinha</option>
+                        <option value="2" <?php echo ($order['flavor'] == 2) ? 'selected' : ''; ?>>Bolinho</option>
+                        <option value="3" <?php echo ($order['flavor'] == 3) ? 'selected' : ''; ?>>Risoles</option>
+                        <option value="4" <?php echo ($order['flavor'] == 4) ? 'selected' : ''; ?>>Esfirra</option>
+                        <option value="5" <?php echo ($order['flavor'] == 5) ? 'selected' : ''; ?>>Salsicha</option>
+                        <option value="6" <?php echo ($order['flavor'] == 6) ? 'selected' : ''; ?>>Croquete</option>
+                    </select>
+
+                <button type="submit">Atualizar Pedido</button>
+            </form>
+
+        <?php elseif ($order['flavor'] == 'Risoles' || $order['flavor'] == '3'): ?>
+
+            <!--RISOLES-->
+            <form action="" method="post">
+                <label for="product">Produto:</label>
+                <select id="product" name="product">
+                    <option value="Presunto e Queijo" <?php echo ($order['product'] == 'Presunto e Queijo') ? 'selected' : ''; ?>>Presunto e Queijo</option>
+                    <option value="Frango C/ Catupiry" <?php echo ($order['product'] == 'Frango C/ Catupiry') ? 'selected' : ''; ?>>Frango C/ Catupiry</option>
+                    <option value="Calabresa" <?php echo ($order['product'] == 'Calabresa') ? 'selected' : ''; ?>>Calabresa</option>
+                    <option value="Calabresa C/ Catupiry" <?php echo ($order['product'] == 'Calabresa C/ Catupiry') ? 'selected' : ''; ?>>Calabresa C/ Catupiry</option>
+                </select>
+
+                <label for="quantityType">Tipo de Quantidade:</label>
+                <input type="radio" id="unit" name="quantity_type" value="unit" <?php echo ($order['quantity_type'] == 'unit') ? 'checked' : ''; ?>>
+                <label for="unit">Unidades</label>
+                <input type="radio" id="combo" name="quantity_type" value="combo" <?php echo ($order['quantity_type'] == 'combo') ? 'checked' : ''; ?>>
+                <label for="combo">Combos</label>
+                <br>
+
+                <div id="unitQuantityContainer" style="display: <?php echo ($order['quantity_type'] == 'unit') ? 'block' : 'none'; ?>;">
+                    <label for="unitQuantity">Quantidade de Unidades:</label>
+                    <input type="number" id="unitQuantity" name="unit_quantity" min="1" value="<?php echo ($order['quantity_type'] == 'unit') ? $order['quantity'] : '1'; ?>">
+                </div>
+
+                <div id="comboQuantityContainer" style="display: <?php echo ($order['quantity_type'] == 'combo') ? 'block' : 'none'; ?>;">
+                    <label for="comboQuantity">Quantidade de Combos:</label>
+                    <select id="comboQuantity" name="combo_quantity">
+                        <option value="20" <?php echo ($order['quantity'] == 20) ? 'selected' : ''; ?>>20</option>
+                        <option value="30" <?php echo ($order['quantity'] == 30) ? 'selected' : ''; ?>>30</option>
+                        <option value="40" <?php echo ($order['quantity'] == 40) ? 'selected' : ''; ?>>40</option>
+                        <option value="50" <?php echo ($order['quantity'] == 50) ? 'selected' : ''; ?>>50</option>
+                        <option value="70" <?php echo ($order['quantity'] == 70) ? 'selected' : ''; ?>>70</option>
+                        <option value="80" <?php echo ($order['quantity'] == 80) ? 'selected' : ''; ?>>80</option>
+                        <option value="90" <?php echo ($order['quantity'] == 90) ? 'selected' : ''; ?>>90</option>
+                        <option value="100" <?php echo ($order['quantity'] == 100) ? 'selected' : ''; ?>>100</option>
+                    </select>
+                </div>
+
+                <label for="flavor">Sabor:</label>
+                    <select id="flavor" name="flavor">
+                        <option value="1" <?php echo ($order['flavor'] == 1) ? 'selected' : ''; ?>>Coxinha</option>
+                        <option value="2" <?php echo ($order['flavor'] == 2) ? 'selected' : ''; ?>>Bolinho</option>
+                        <option value="3" <?php echo ($order['flavor'] == 3) ? 'selected' : ''; ?>>Risoles</option>
+                        <option value="4" <?php echo ($order['flavor'] == 4) ? 'selected' : ''; ?>>Esfirra</option>
+                        <option value="5" <?php echo ($order['flavor'] == 5) ? 'selected' : ''; ?>>Salsicha</option>
+                        <option value="6" <?php echo ($order['flavor'] == 6) ? 'selected' : ''; ?>>Croquete</option>
+                    </select>
+
+                <button type="submit">Atualizar Pedido</button>
+            </form>
+            
+        <?php elseif ($order['flavor'] == 'Esfirra' || $order['flavor'] == '4'): ?>
+            
+            <!--ESFIRRAS-->
+            <form action="" method="post">
+                <label for="product">Produto:</label>
+                <select id="product" name="product">
+                    <option value="Frango" <?php echo ($order['product'] == 'Frango') ? 'selected' : ''; ?>>Frango</option>
+                    <option value="Frango C/ Catupiry" <?php echo ($order['product'] == 'Frango C/ Catupiry') ? 'selected' : ''; ?>>Frango C/ Catupiry</option>
+                    <option value="Calabresa" <?php echo ($order['product'] == 'Calabresa') ? 'selected' : ''; ?>>Calabresa</option>
+                    <option value="Calabresa C/ Catupiry" <?php echo ($order['product'] == 'Calabresa C/ Catupiry') ? 'selected' : ''; ?>>Calabresa C/ Catupiry</option>
+                    <option value="Carne-Moída" <?php echo ($order['product'] == 'Carne-Moída') ? 'selected' : ''; ?>>Carne-Moída</option>
+                </select>
+
+                <label for="quantityType">Tipo de Quantidade:</label>
+                <input type="radio" id="unit" name="quantity_type" value="unit" <?php echo ($order['quantity_type'] == 'unit') ? 'checked' : ''; ?>>
+                <label for="unit">Unidades</label>
+                <input type="radio" id="combo" name="quantity_type" value="combo" <?php echo ($order['quantity_type'] == 'combo') ? 'checked' : ''; ?>>
+                <label for="combo">Combos</label>
+                <br>
+
+                <div id="unitQuantityContainer" style="display: <?php echo ($order['quantity_type'] == 'unit') ? 'block' : 'none'; ?>;">
+                    <label for="unitQuantity">Quantidade de Unidades:</label>
+                    <input type="number" id="unitQuantity" name="unit_quantity" min="1" value="<?php echo ($order['quantity_type'] == 'unit') ? $order['quantity'] : '1'; ?>">
+                </div>
+
+                <div id="comboQuantityContainer" style="display: <?php echo ($order['quantity_type'] == 'combo') ? 'block' : 'none'; ?>;">
+                    <label for="comboQuantity">Quantidade de Combos:</label>
+                    <select id="comboQuantity" name="combo_quantity">
+                        <option value="20" <?php echo ($order['quantity'] == 20) ? 'selected' : ''; ?>>20</option>
+                        <option value="30" <?php echo ($order['quantity'] == 30) ? 'selected' : ''; ?>>30</option>
+                        <option value="40" <?php echo ($order['quantity'] == 40) ? 'selected' : ''; ?>>40</option>
+                        <option value="50" <?php echo ($order['quantity'] == 50) ? 'selected' : ''; ?>>50</option>
+                        <option value="70" <?php echo ($order['quantity'] == 70) ? 'selected' : ''; ?>>70</option>
+                        <option value="80" <?php echo ($order['quantity'] == 80) ? 'selected' : ''; ?>>80</option>
+                        <option value="90" <?php echo ($order['quantity'] == 90) ? 'selected' : ''; ?>>90</option>
+                        <option value="100" <?php echo ($order['quantity'] == 100) ? 'selected' : ''; ?>>100</option>
+                    </select>
+                </div>
+
+                <label for="flavor">Sabor:</label>
+                    <select id="flavor" name="flavor">
+                        <option value="1" <?php echo ($order['flavor'] == 1) ? 'selected' : ''; ?>>Coxinha</option>
+                        <option value="2" <?php echo ($order['flavor'] == 2) ? 'selected' : ''; ?>>Bolinho</option>
+                        <option value="3" <?php echo ($order['flavor'] == 3) ? 'selected' : ''; ?>>Risoles</option>
+                        <option value="4" <?php echo ($order['flavor'] == 4) ? 'selected' : ''; ?>>Esfirra</option>
+                        <option value="5" <?php echo ($order['flavor'] == 5) ? 'selected' : ''; ?>>Salsicha</option>
+                        <option value="6" <?php echo ($order['flavor'] == 6) ? 'selected' : ''; ?>>Croquete</option>
+                    </select>
+
+                <button type="submit">Atualizar Pedido</button>
+            </form>
+
+        <?php elseif ($order['flavor'] == 'Salsicha' || $order['flavor'] == '5'): ?>
+            
+            <!--SALSICHA-->
+            <form action="" method="post">
+                <label for="product">Produto:</label>
+                <select id="product" name="product">
+                    <option value="Salsicha-Frita" <?php echo ($order['product'] == 'Salsicha-Frita') ? 'selected' : ''; ?>>Salsicha-Frita</option>
+                </select>
+
+                <label for="quantityType">Tipo de Quantidade:</label>
+                <input type="radio" id="unit" name="quantity_type" value="unit" <?php echo ($order['quantity_type'] == 'unit') ? 'checked' : ''; ?>>
+                <label for="unit">Unidades</label>
+                <input type="radio" id="combo" name="quantity_type" value="combo" <?php echo ($order['quantity_type'] == 'combo') ? 'checked' : ''; ?>>
+                <label for="combo">Combos</label>
+                <br>
+
+                <div id="unitQuantityContainer" style="display: <?php echo ($order['quantity_type'] == 'unit') ? 'block' : 'none'; ?>;">
+                    <label for="unitQuantity">Quantidade de Unidades:</label>
+                    <input type="number" id="unitQuantity" name="unit_quantity" min="1" value="<?php echo ($order['quantity_type'] == 'unit') ? $order['quantity'] : '1'; ?>">
+                </div>
+
+                <div id="comboQuantityContainer" style="display: <?php echo ($order['quantity_type'] == 'combo') ? 'block' : 'none'; ?>;">
+                    <label for="comboQuantity">Quantidade de Combos:</label>
+                    <select id="comboQuantity" name="combo_quantity">
+                        <option value="20" <?php echo ($order['quantity'] == 20) ? 'selected' : ''; ?>>20</option>
+                        <option value="30" <?php echo ($order['quantity'] == 30) ? 'selected' : ''; ?>>30</option>
+                        <option value="40" <?php echo ($order['quantity'] == 40) ? 'selected' : ''; ?>>40</option>
+                        <option value="50" <?php echo ($order['quantity'] == 50) ? 'selected' : ''; ?>>50</option>
+                        <option value="70" <?php echo ($order['quantity'] == 70) ? 'selected' : ''; ?>>70</option>
+                        <option value="80" <?php echo ($order['quantity'] == 80) ? 'selected' : ''; ?>>80</option>
+                        <option value="90" <?php echo ($order['quantity'] == 90) ? 'selected' : ''; ?>>90</option>
+                        <option value="100" <?php echo ($order['quantity'] == 100) ? 'selected' : ''; ?>>100</option>
+                    </select>
+                </div>
+
+                <label for="flavor">Sabor:</label>
+                    <select id="flavor" name="flavor">
+                        <option value="1" <?php echo ($order['flavor'] == 1) ? 'selected' : ''; ?>>Coxinha</option>
+                        <option value="2" <?php echo ($order['flavor'] == 2) ? 'selected' : ''; ?>>Bolinho</option>
+                        <option value="3" <?php echo ($order['flavor'] == 3) ? 'selected' : ''; ?>>Risoles</option>
+                        <option value="4" <?php echo ($order['flavor'] == 4) ? 'selected' : ''; ?>>Esfirra</option>
+                        <option value="5" <?php echo ($order['flavor'] == 5) ? 'selected' : ''; ?>>Salsicha</option>
+                        <option value="6" <?php echo ($order['flavor'] == 6) ? 'selected' : ''; ?>>Croquete</option>
+                    </select>
+
+                <button type="submit">Atualizar Pedido</button>
+            </form>
+
+        <?php elseif ($order['flavor'] == 'Croquete' || $order['flavor'] == '6'): ?>
+            
+            <!--SALSICHA-->
+            <form action="" method="post">
+                <label for="product">Produto:</label>
+                <select id="product" name="product">
+                    <option value="Croquete de Carne" <?php echo ($order['product'] == 'Croquete de Carne') ? 'selected' : ''; ?>>Croquete de Carne</option>
+                </select>
+
+                <label for="quantityType">Tipo de Quantidade:</label>
+                <input type="radio" id="unit" name="quantity_type" value="unit" <?php echo ($order['quantity_type'] == 'unit') ? 'checked' : ''; ?>>
+                <label for="unit">Unidades</label>
+                <input type="radio" id="combo" name="quantity_type" value="combo" <?php echo ($order['quantity_type'] == 'combo') ? 'checked' : ''; ?>>
+                <label for="combo">Combos</label>
+                <br>
+
+                <div id="unitQuantityContainer" style="display: <?php echo ($order['quantity_type'] == 'unit') ? 'block' : 'none'; ?>;">
+                    <label for="unitQuantity">Quantidade de Unidades:</label>
+                    <input type="number" id="unitQuantity" name="unit_quantity" min="1" value="<?php echo ($order['quantity_type'] == 'unit') ? $order['quantity'] : '1'; ?>">
+                </div>
+
+                <div id="comboQuantityContainer" style="display: <?php echo ($order['quantity_type'] == 'combo') ? 'block' : 'none'; ?>;">
+                    <label for="comboQuantity">Quantidade de Combos:</label>
+                    <select id="comboQuantity" name="combo_quantity">
+                        <option value="20" <?php echo ($order['quantity'] == 20) ? 'selected' : ''; ?>>20</option>
+                        <option value="30" <?php echo ($order['quantity'] == 30) ? 'selected' : ''; ?>>30</option>
+                        <option value="40" <?php echo ($order['quantity'] == 40) ? 'selected' : ''; ?>>40</option>
+                        <option value="50" <?php echo ($order['quantity'] == 50) ? 'selected' : ''; ?>>50</option>
+                        <option value="70" <?php echo ($order['quantity'] == 70) ? 'selected' : ''; ?>>70</option>
+                        <option value="80" <?php echo ($order['quantity'] == 80) ? 'selected' : ''; ?>>80</option>
+                        <option value="90" <?php echo ($order['quantity'] == 90) ? 'selected' : ''; ?>>90</option>
+                        <option value="100" <?php echo ($order['quantity'] == 100) ? 'selected' : ''; ?>>100</option>
+                    </select>
+                </div>
+
+                <label for="flavor">Sabor:</label>
+                    <select id="flavor" name="flavor">
+                        <option value="1" <?php echo ($order['flavor'] == 1) ? 'selected' : ''; ?>>Coxinha</option>
+                        <option value="2" <?php echo ($order['flavor'] == 2) ? 'selected' : ''; ?>>Bolinho</option>
+                        <option value="3" <?php echo ($order['flavor'] == 3) ? 'selected' : ''; ?>>Risoles</option>
+                        <option value="4" <?php echo ($order['flavor'] == 4) ? 'selected' : ''; ?>>Esfirra</option>
+                        <option value="5" <?php echo ($order['flavor'] == 5) ? 'selected' : ''; ?>>Salsicha</option>
+                        <option value="6" <?php echo ($order['flavor'] == 6) ? 'selected' : ''; ?>>Croquete</option>
+                    </select>
+
+                <button type="submit">Atualizar Pedido</button>
+            </form>
+
+        <?php else: ?>
+            <script>alert('Produto Inesistente!');</script>
+        <?php endif; ?>
     </div>
 
     <script>

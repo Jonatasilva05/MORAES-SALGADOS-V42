@@ -455,7 +455,7 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_name']) || $_SESSION[
          <div class="price">R$<span id="finalPrice1">5,00</span> Reais</div>
          <div class="buttons">
             <button type="submit" onclick="return confirm('Pedido Realizado com Sucesso!');" class="cart">Fazer Pedido</button>
-            <a href="./login.php" class="cart">Minha lista</a>
+            <a href="./user_lista.php" class="cart">Ver Minha lista</a>
             <a href="./login.php" class="buy">Comprar</a>
          </div>
          </form>
@@ -505,8 +505,8 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_name']) || $_SESSION[
          </div>
    
          <div id="comboQuantityContainer1" style="display: none;">
-            <label for="comboQuantity">Qual Combo Deseja:</label>
-            <select id="comboQuantity" name="combo_quantity1">
+            <label for="comboQuantity2">Qual Combo Deseja:</label>
+            <select id="comboQuantity2" name="combo_quantity1">
                   <option value="20">20</option>
                   <option value="30">30</option>
                   <option value="40">40</option>
@@ -524,7 +524,7 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_name']) || $_SESSION[
          <div class="price">R$<span id="finalPrice2">5,00</span> Reais</div>
          <div class="buttons">
             <button type="submit" onclick="return confirm('Pedido Realizado com Sucesso!');" class="cart">Fazer Pedido</button>
-            <a href="./login.php" class="cart">Minha lista</a>
+            <a href="./user_lista.php" class="cart">Minha lista</a>
             <a href="./login.php" class="buy">Comprar</a>
          </div>
          </form>
@@ -568,8 +568,8 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_name']) || $_SESSION[
          </div>
    
          <div id="comboQuantityContainer3" style="display: none;">
-            <label for="comboQuantity">Qual Combo Deseja:</label>
-            <select id="comboQuantity" name="combo_quantity3">
+            <label for="comboQuantity3">Qual Combo Deseja:</label>
+            <select id="comboQuantity3" name="combo_quantity3">
                   <option value="20">20</option>
                   <option value="30">30</option>
                   <option value="40">40</option>
@@ -587,11 +587,11 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_name']) || $_SESSION[
          <div class="price">R$<span id="finalPrice3">5,00</span> Reais</div>
          <div class="buttons">
             <button type="submit" onclick="return confirm('Pedido Realizado com Sucesso!');" class="cart">Fazer Pedido</button>
-            <a href="./login.php" class="cart">Minha lista</a>
+            <a href="./user_lista.php" class="cart">Minha lista</a>
             <a href="./login.php" class="buy">Comprar</a>
          </div>
       </form>
-      </div>
+     </div>
 
       <!--ESFIRRAS-->
       <div class="preview" data-target="p-4">
@@ -632,8 +632,8 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_name']) || $_SESSION[
          </div>
    
          <div id="comboQuantityContainer4" style="display: none;">
-            <label for="comboQuantity">Qual Combo Deseja:</label>
-            <select id="comboQuantity" name="combo_quantity4">
+            <label for="comboQuantity4">Qual Combo Deseja:</label>
+            <select id="comboQuantity4" name="combo_quantity4">
                   <option value="20">20</option>
                   <option value="30">30</option>
                   <option value="40">40</option>
@@ -651,7 +651,7 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_name']) || $_SESSION[
          <div class="price">R$<span id="finalPrice4">5,00</span> Reais</div>
          <div class="buttons">
             <button type="submit" onclick="return confirm('Pedido Realizado com Sucesso!');" class="cart">Fazer Pedido</button>
-            <a href="./login.php" class="cart">Minha lista</a>
+            <a href="./user_lista.php" class="cart">Minha lista</a>
             <a href="./login.php" class="buy">Comprar</a>
          </div>
       </form>
@@ -692,8 +692,8 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_name']) || $_SESSION[
          </div>
    
          <div id="comboQuantityContainer5" style="display: none;">
-            <label for="comboQuantity">Qual Combo Deseja:</label>
-            <select id="comboQuantity" name="combo_quantity5">
+            <label for="comboQuantity5">Qual Combo Deseja:</label>
+            <select id="comboQuantity5" name="combo_quantity5">
                   <option value="20">20</option>
                   <option value="30">30</option>
                   <option value="40">40</option>
@@ -711,7 +711,7 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_name']) || $_SESSION[
          <div class="price">R$<span id="finalPrice5">5,00</span> Reais</div>
          <div class="buttons">
             <button type="submit" onclick="return confirm('Pedido Realizado com Sucesso!');" class="cart">Fazer Pedido</button>
-            <a href="./login.php" class="cart">Minha lista</a>
+            <a href="./user_lista.php" class="cart">Minha lista</a>
             <a href="./login.php" class="buy">Comprar</a>
          </div>
       </form>
@@ -752,8 +752,8 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_name']) || $_SESSION[
          </div>
    
          <div id="comboQuantityContainer6" style="display: none;">
-            <label for="comboQuantity">Qual Combo Deseja:</label>
-            <select id="comboQuantity" name="combo_quantity6">
+            <label for="comboQuantity6">Qual Combo Deseja:</label>
+            <select id="comboQuantity6" name="combo_quantity6">
                   <option value="20">20</option>
                   <option value="30">30</option>
                   <option value="40">40</option>
@@ -771,7 +771,7 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_name']) || $_SESSION[
          <div class="price">R$<span id="finalPrice6">5,00</span> Reais</div>
          <div class="buttons">
             <button type="submit" onclick="return confirm('Pedido Realizado com Sucesso!');" class="cart">Fazer Pedido</button>
-            <a href="./login.php" class="cart">Minha lista</a>
+            <a href="./user_lista.php" class="cart">Minha lista</a>
             <a href="./login.php" class="buy">Comprar</a>
          </div>
          </form>

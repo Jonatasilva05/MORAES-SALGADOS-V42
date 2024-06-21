@@ -53,25 +53,46 @@ $total_geral = 0;
                     </tr>
                 </thead>
                 <tbody>
-                    <?php while($row = $result->fetch_assoc()): ?>
+                <?php while($row = $result->fetch_assoc()): ?>
                         <tr>
+                            <td>
+                                <?php 
+                                if ($row['flavor'] == 1) {
+                                    echo "Coxinha";
+                                } elseif ($row['flavor'] == 2) {
+                                    echo "Bolinho";
+                                } elseif ($row['flavor'] == 3) {
+                                    echo "Risoles";
+                                } elseif ($row['flavor'] == 4) {
+                                    echo "Esfirra";
+                                } elseif ($row['flavor'] == 5) {
+                                    echo "Salsicha";
+                                } elseif ($row['flavor'] == 6) {
+                                    echo "Croquete";
+                                } else {
+                                    echo htmlspecialchars($row['flavor']);
+                                }
+                                ?>
+                            </td>
                             <td><?php echo htmlspecialchars($row['product']); ?></td>
-                            <td><?php echo htmlspecialchars($row['flavor']); ?></td>
                             <td><?php echo htmlspecialchars($row['quantity_type']); ?></td>
                             <td><?php echo htmlspecialchars($row['quantity']); ?></td>
                             <?php
+                            
+                            //MÉTODO PARA CALCULO DOS PRODUTOS
                             $total_produto = 0;
                             if ($row['quantity_type'] == 'unit') {
                                 $total_produto = $row['quantity'] * 5;
                             } elseif ($row['quantity_type'] == 'combo') {
-                                $total_produto = $row['quantity'] * 30;
+                                $total_produto = $row['quantity'] + 30;
                             }
-                            $total_geral += $total_produto;
+                            $total_geral += $total_produto; //MOSTRA O VALOR FINAL DA LISTA DE PEDIDOS  
                             ?>
                             <td><?php echo "R$ " . number_format($total_produto, 2, ',', '.'); ?></td>
                             <td><?php echo htmlspecialchars($row['order_date']); ?></td>
                             <td>
-                                <a href="user_editlista.php?id=<?php echo $row['id']; ?>">
+                                <br>
+                                <a href="user_editlista.php?id=<?php echo $row['id'];?>">
                                     <button class="noselect">
                                         <span class="text">Editar</span>
                                         <span class="icon">
@@ -91,7 +112,7 @@ $total_geral = 0;
                                             </svg>
                                         </span>
                                     </button>
-                                </a>
+                                </a>                                
                             </td>
                         </tr>
                     <?php endwhile; ?>
